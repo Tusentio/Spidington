@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="Spidington"
+run/main_scene="res://Scenes/Menu/Menu.tscn"
 
 [physics]
 
