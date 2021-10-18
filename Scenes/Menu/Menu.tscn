@@ -53,6 +53,8 @@ rect_min_size = Vector2( 0, 70 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "PLAY"
 script = ExtResource( 4 )
 __meta__ = {
@@ -67,6 +69,8 @@ rect_min_size = Vector2( 0, 70 )
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "QUIT"
 script = ExtResource( 3 )
 
