@@ -13,6 +13,10 @@ config_version=4
 config/name="Spidington"
 run/main_scene="res://Scenes/Menu/Menu.tscn"
 
+[display]
+
+window/stretch/mode="2d"
+
 [input]
 
 pause_menu={
