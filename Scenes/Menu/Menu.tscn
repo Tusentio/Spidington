@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Logo.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/GameFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/Menu/QuitButton.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Menu/PlayButton.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 corner_radius_top_left = 10
@@ -20,6 +21,7 @@ corner_radius_bottom_left = 10
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,6 +60,7 @@ __meta__ = {
 margin_right = 239.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 0, 70 )
+focus_neighbour_top = NodePath("../QuitButton")
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 2 )
@@ -74,6 +77,7 @@ margin_top = 121.0
 margin_right = 239.0
 margin_bottom = 191.0
 rect_min_size = Vector2( 0, 70 )
+focus_neighbour_bottom = NodePath("../PlayButton")
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 2 )
