@@ -1,13 +1,12 @@
 extends Node2D
 
+
+const string_shot := preload("res://Scenes/String/String.tscn")
+
 export (float) var string_speed := 500.0
-
-var hung_position := Vector2.ZERO
+onready var shoot_origin := $ShootOrigin
 var _is_ready := false
-
-onready var hook := $Hook
-onready var spindel := $Spindel
-onready var shoot_origin := $Spindel/ShootOrigin
+var shot: StringShot = null
 
 
 func _ready():
@@ -15,26 +14,23 @@ func _ready():
 
 
 func _input(event):
-	if Input.is_action_just_pressed("shoot_string") and not hung_position:
+	if Input.is_action_just_pressed("shoot_string"):
+		if shot:
+			shot.disconnect("hit", self, "_shot_hit")
+			shot.detach()
+		
 		var mouse := get_global_mouse_position()
-		var space_rid := get_world_2d().space
-		var space_state := Physics2DServer.space_get_direct_state(space_rid)
-		var hit := space_state.intersect_ray(shoot_origin.global_position, mouse, [], 0b100)
+		var shoot_direction: Vector2 = (mouse - shoot_origin.global_position).normalized()
 		
-		if hit:
-			hung_position = hit.position
-			hook.global_position = shoot_origin.global_position
-			hook.visible = true
-
-
-func _process(delta):
-	if not _is_ready: return
-	
-	if hung_position and hook.global_position != hung_position:
-		var hook_offset: Vector2 = hung_position - hook.global_position
-		var frame_move = hook_offset.normalized() * delta * string_speed
+		shot = string_shot.instance()
 		
-		if hook_offset.length() > frame_move.length():
-			hook.global_position += frame_move
-		else:
-			hook.global_position = hung_position
+		shot.global_position = shoot_origin.global_position
+		shot.set_velocity(shoot_direction * 1)
+		shot.set_anchor(shoot_origin)
+		
+		shot.connect("hit", self, "_shot_hit")
+		
+		get_tree().get_root().add_child(shot)
+
+func _shot_hit():
+	shot.detach()
