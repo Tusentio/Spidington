@@ -10,8 +10,11 @@ height = 4.0
 [node name="Player" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Spindel" type="KinematicBody2D" parent="."]
+[node name="Spindel" type="RigidBody2D" parent="."]
 collision_mask = 2
+mode = 2
+continuous_cd = 2
+contact_monitor = true
 
 [node name="Sprite" type="Sprite" parent="Spindel"]
 position = Vector2( 0, -8 )
@@ -22,4 +25,12 @@ position = Vector2( 0, -2.5 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="ShootOrigin" type="Position2D" parent="Spindel"]
+position = Vector2( 0, -3 )
+
 [node name="Hook" type="Node2D" parent="."]
+visible = false
+
+[node name="Hook" type="Sprite" parent="Hook"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
