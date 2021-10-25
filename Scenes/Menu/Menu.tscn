@@ -1,16 +1,17 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Logo.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/GameFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/Menu/QuitButton.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Menu/PlayButton.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=5]
-[ext_resource path="res://Logo/Spidingtonlogo5.png" type="Texture" id=6]
-[ext_resource path="res://Logo/Spidingtonlogo2.png" type="Texture" id=7]
-[ext_resource path="res://Logo/Spidingtonlogo.png" type="Texture" id=8]
-[ext_resource path="res://Logo/Spidingtonlogo3.png" type="Texture" id=9]
-[ext_resource path="res://Logo/Spidingtonlogo4.png" type="Texture" id=10]
+[ext_resource path="res://Logo/SpidingtonLogo5.png" type="Texture" id=6]
+[ext_resource path="res://Logo/SpidingtonLogo2.png" type="Texture" id=7]
+[ext_resource path="res://Logo/SpidingtonLogo1.png" type="Texture" id=8]
+[ext_resource path="res://Logo/SpidingtonLogo3.png" type="Texture" id=9]
+[ext_resource path="res://Logo/SpidingtonLogo4.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Menu/Logo.gd" type="Script" id=11]
+[ext_resource path="res://Logo/Spidingtonlogo6.png" type="Texture" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 corner_radius_top_left = 10
@@ -26,9 +27,14 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 2.0
+}, {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 6 ) ],
 "loop": false,
-"name": "default",
+"name": "intro",
 "speed": 9.0
 } ]
 
@@ -108,7 +114,9 @@ script = ExtResource( 3 )
 position = Vector2( 513.738, 143.894 )
 scale = Vector2( 5.0879, 5.0879 )
 frames = SubResource( 3 )
+animation = "intro"
 script = ExtResource( 11 )
 
 [connection signal="pressed" from="ColorRect/ButtonContainer/PlayButton" to="ColorRect/ButtonContainer/PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ColorRect/ButtonContainer/QuitButton" to="ColorRect/ButtonContainer/QuitButton" method="_on_QuitButton_pressed"]
+[connection signal="animation_finished" from="ColorRect/Logo" to="ColorRect/Logo" method="_on_Logo_animation_finished"]

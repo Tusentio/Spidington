@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Spidingtonlogo2.png-f541f69533256aeab34b2b552d3b1507.stex"
+path="res://.import/SpidingtonLogo2.png-11ba7deab23e86d7306521157a7d076e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Logo/Spidingtonlogo2.png"
-dest_files=[ "res://.import/Spidingtonlogo2.png-f541f69533256aeab34b2b552d3b1507.stex" ]
+source_file="res://Logo/SpidingtonLogo2.png"
+dest_files=[ "res://.import/SpidingtonLogo2.png-11ba7deab23e86d7306521157a7d076e.stex" ]
 
 [params]
 
