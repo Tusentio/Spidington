@@ -9,7 +9,6 @@ height = 4.0
 
 [node name="Spindel" type="RigidBody2D"]
 collision_mask = 2
-mode = 2
 continuous_cd = 2
 contact_monitor = true
 script = ExtResource( 2 )

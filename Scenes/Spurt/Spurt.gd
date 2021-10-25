@@ -1,14 +1,11 @@
 extends KinematicBody2D
 class_name Spurt
 
-signal detached
-signal hit
-
 const GRAVITY := 1000.0
 const DRAG := 0.001
 const SHORTENING_COEFFICIENT := 0.8
 const MIN_STRING_LENGTH := 1.0
-const MAX_STRING_LENGTH := 100.0
+const MAX_STRING_LENGTH := 150.0
 
 var anchor: Node2D = null
 var velocity := Vector2.ZERO
@@ -19,7 +16,7 @@ onready var line := $Line2D
 func _process(delta):
 	var string_length = line.points[1].length()
 	
-	if is_instance_valid(anchor):
+	if is_anchored():
 		if string_length > MAX_STRING_LENGTH:
 			detach()
 			return
@@ -32,11 +29,11 @@ func _process(delta):
 		
 		line.points[1] = to_local(anchor.global_position)
 	else:
-		string_length *= pow(SHORTENING_COEFFICIENT, delta)
-		
 		if string_length < MIN_STRING_LENGTH:
 			queue_free()
 			return
+		
+		string_length *= pow(SHORTENING_COEFFICIENT, delta)
 		
 		# Gravity
 		tail_velocity += Vector2.DOWN * delta * GRAVITY
@@ -56,12 +53,11 @@ func _physics_process(delta):
 	if velocity:
 		var collision := move_and_collide(velocity)
 		
-		if is_instance_valid(anchor) and collision:
-			velocity = Vector2.ZERO
-			emit_signal("hit")
+		if collision:
+			set_velocity(Vector2.ZERO)
 
 
-func set_velocity(velocity):
+func set_velocity(velocity: Vector2):
 	self.velocity = velocity
 
 
@@ -70,6 +66,13 @@ func set_anchor(anchor: Node2D):
 
 
 func detach():
-	if is_instance_valid(anchor):
+	if is_anchored():
 		anchor = null
-		emit_signal("detached")
+
+
+func is_hooked():
+	return velocity == Vector2.ZERO
+
+
+func is_anchored():
+	return is_instance_valid(anchor)
