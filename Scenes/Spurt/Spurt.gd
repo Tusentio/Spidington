@@ -24,6 +24,7 @@ func _process(delta):
 		var space_state := get_world_2d().direct_space_state
 		var obstruction := space_state.intersect_ray(global_position, anchor.global_position, [], 0b10)
 		if obstruction:
+			line.points[1] = to_local(obstruction.position)
 			detach()
 			return
 		
