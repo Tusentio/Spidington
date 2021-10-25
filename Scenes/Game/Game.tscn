@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Tilesets/Grass/GrassTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilesets/Hooks/HookMap.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Game/Cloud.png" type="Texture" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 13, 13, 3, 13, 3, 3, 13, 3 )
@@ -56,3 +57,20 @@ position = Vector2( -6, 13 )
 [node name="Camera" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
+
+[node name="Background" type="ParallaxBackground" parent="."]
+
+[node name="CloudLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 410, 240 )
+
+[node name="CloudBig" type="Sprite" parent="Background/CloudLayer"]
+self_modulate = Color( 1, 1, 1, 0.705882 )
+position = Vector2( 26.2004, -7.32933 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+
+[node name="CloudSmall" type="Sprite" parent="Background/CloudLayer"]
+self_modulate = Color( 1, 1, 1, 0.588235 )
+position = Vector2( 232.94, 125.247 )
+texture = ExtResource( 5 )
