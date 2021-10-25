@@ -2,8 +2,8 @@ extends KinematicBody2D
 class_name Spurt
 
 const GRAVITY := 1000.0
-const DRAG := 0.001
-const SHORTENING_COEFFICIENT := 0.8
+const DRAG := 0.004
+const SHORTENING_COEFFICIENT := 0.2
 const MIN_STRING_LENGTH := 1.0
 const MAX_STRING_LENGTH := 150.0
 
