@@ -1,10 +1,8 @@
 extends KinematicBody2D
 class_name Spurt
 
-
 signal detached
 signal hit
-
 
 const GRAVITY := 1000.0
 const DRAG := 0.001

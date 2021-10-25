@@ -1,6 +1,5 @@
 extends Node2D
 
-
 const scn_spurt := preload("res://Scenes/Spurt/Spurt.tscn")
 
 export (float) var string_speed := 500.0
