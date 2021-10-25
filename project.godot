@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "KinematicBody2D",
-"class": "StringShot",
+"class": "Spurt",
 "language": "GDScript",
-"path": "res://Scenes/String/String.gd"
+"path": "res://Scenes/Spurt/Spurt.gd"
 } ]
 _global_script_class_icons={
-"StringShot": ""
+"Spurt": ""
 }
 
 [application]

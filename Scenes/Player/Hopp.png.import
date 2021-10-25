@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpiderHopp..png-9f899fd2474a163c2206bad5b816231e.stex"
+path="res://.import/Hopp.png-4821fe1296e2affe08b10fdb2f39cda3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Player/SpiderHopp..png"
-dest_files=[ "res://.import/SpiderHopp..png-9f899fd2474a163c2206bad5b816231e.stex" ]
+source_file="res://Scenes/Player/Hopp.png"
+dest_files=[ "res://.import/Hopp.png-4821fe1296e2affe08b10fdb2f39cda3.stex" ]
 
 [params]
 
