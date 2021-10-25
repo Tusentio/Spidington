@@ -72,5 +72,6 @@ func set_anchor(anchor: Node2D):
 
 
 func detach():
-	anchor = null
-	emit_signal("detached")
+	if is_instance_valid(anchor):
+		anchor = null
+		emit_signal("detached")
