@@ -29,6 +29,10 @@ func _process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
+func _exit_tree():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+
 func _physics_process(delta):
 	linear_velocity *= pow(1 / (1 + linear_drag), delta)
 	angular_velocity *= pow(1 / (1 + angular_drag), delta)
