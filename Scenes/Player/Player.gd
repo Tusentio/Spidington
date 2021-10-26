@@ -1,7 +1,6 @@
 extends RigidBody2D
 
 const scn_spurt := preload("res://Scenes/Spurt/Spurt.tscn")
-const save_path := "user://save.res"
 
 export (float) var spurt_velocity := 10.0
 export (float) var move_force_multiplier := 0.015
@@ -31,7 +30,6 @@ func _process(delta):
 
 func _exit_tree():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	save_state()
 
 
 func _physics_process(delta):
@@ -66,11 +64,14 @@ func _input(event):
 		if is_instance_valid(spurt) and spurt.is_anchored():
 			spurt.detach()
 		spurt = null
+	
+	if Input.is_action_just_pressed("pause_menu"):
+		save_state()
 
 
 func load_state():
-	if File.new().file_exists(save_path):
-		var player_data: PlayerData = ResourceLoader.load(save_path, "", true)
+	var player_data = PlayerData.read()
+	if player_data and player_data.saved:
 		global_position = player_data.global_position
 		rotation = player_data.rotation
 		linear_velocity = player_data.linear_velocity
@@ -79,8 +80,9 @@ func load_state():
 
 func save_state():
 	var player_data := PlayerData.new()
+	player_data.saved = true
 	player_data.global_position = global_position
 	player_data.rotation = rotation
 	player_data.linear_velocity = linear_velocity
 	player_data.angular_velocity = angular_velocity
-	ResourceSaver.save(save_path, player_data, ResourceSaver.FLAG_COMPRESS)
+	player_data.save()
