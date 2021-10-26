@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Logo/SpidingtonLogo1.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/GameFont.tres" type="DynamicFont" id=2]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Content" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="Content"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -218.5
+margin_top = 100.0
+margin_right = 218.5
+margin_bottom = 200.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Content"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -394.5
+margin_top = -49.5
+margin_right = 394.5
+margin_bottom = 49.5
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "A game by Elias Söderlund, Kevin Sundqvist Norlén, Perat Sawadpol and Tomas Bergström
+
+Thanks for playing!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

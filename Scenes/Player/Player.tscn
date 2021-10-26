@@ -16,7 +16,9 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="Spindel" type="RigidBody2D"]
+[node name="Spindel" type="RigidBody2D" groups=[
+"Player",
+]]
 collision_mask = 2
 continuous_cd = 2
 contact_monitor = true
