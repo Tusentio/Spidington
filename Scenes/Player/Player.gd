@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 const scn_spurt := preload("res://Scenes/Spurt/Spurt.tscn")
+const save_path := "user://save.res"
 
 export (float) var spurt_velocity := 10.0
 export (float) var move_force_multiplier := 0.015
@@ -9,7 +10,6 @@ export (float) var linear_drag := 0.1
 export (float) var angular_drag := 0.1
 
 onready var shoot_origin := $ShootOrigin
-var _is_ready := false
 var spurt: Spurt = null
 
 var mouse_update_duration := 0.0
@@ -17,7 +17,7 @@ var mouse_velocity := Vector2.ZERO
 
 
 func _ready():
-	_is_ready = true
+	load_state()
 
 
 func _process(delta):
@@ -31,6 +31,7 @@ func _process(delta):
 
 func _exit_tree():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	save_state()
 
 
 func _physics_process(delta):
@@ -65,3 +66,21 @@ func _input(event):
 		if is_instance_valid(spurt) and spurt.is_anchored():
 			spurt.detach()
 		spurt = null
+
+
+func load_state():
+	if File.new().file_exists(save_path):
+		var player_data: PlayerData = ResourceLoader.load(save_path, "", true)
+		global_position = player_data.global_position
+		rotation = player_data.rotation
+		linear_velocity = player_data.linear_velocity
+		angular_velocity = player_data.angular_velocity
+
+
+func save_state():
+	var player_data := PlayerData.new()
+	player_data.global_position = global_position
+	player_data.rotation = rotation
+	player_data.linear_velocity = linear_velocity
+	player_data.angular_velocity = angular_velocity
+	ResourceSaver.save(save_path, player_data, ResourceSaver.FLAG_COMPRESS)

@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "PlayerData",
+"language": "GDScript",
+"path": "res://Scenes/Player/PlayerData.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Spurt",
 "language": "GDScript",
 "path": "res://Scenes/Spurt/Spurt.gd"
 } ]
 _global_script_class_icons={
+"PlayerData": "",
 "Spurt": ""
 }
 
