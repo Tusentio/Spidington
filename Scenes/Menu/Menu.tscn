@@ -96,10 +96,27 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="QuitButton" type="Button" parent="ColorRect/ButtonContainer"]
+[node name="RestartButton" type="Button" parent="ColorRect/ButtonContainer"]
 margin_top = 121.0
 margin_right = 239.0
 margin_bottom = 191.0
+rect_min_size = Vector2( 0, 70 )
+focus_neighbour_top = NodePath("../QuitButton")
+custom_styles/hover = SubResource( 1 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Restart"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="ColorRect/ButtonContainer"]
+margin_top = 242.0
+margin_right = 239.0
+margin_bottom = 312.0
 rect_min_size = Vector2( 0, 70 )
 focus_neighbour_bottom = NodePath("../PlayButton")
 custom_styles/hover = SubResource( 1 )
@@ -118,5 +135,6 @@ animation = "intro"
 script = ExtResource( 11 )
 
 [connection signal="pressed" from="ColorRect/ButtonContainer/PlayButton" to="ColorRect/ButtonContainer/PlayButton" method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ColorRect/ButtonContainer/RestartButton" to="ColorRect/ButtonContainer/RestartButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ColorRect/ButtonContainer/QuitButton" to="ColorRect/ButtonContainer/QuitButton" method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="ColorRect/Logo" to="ColorRect/Logo" method="_on_Logo_animation_finished"]
