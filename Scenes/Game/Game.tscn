@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilesets/Grass/GrassTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Tilesets/Hooks/HookMap.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Game/Cloud.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/EndingArea/EndingArea.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/DagMusik_TreeHouseImproved.wav" type="AudioStream" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 12, 15, 4, 15, 4, 7, 12, 7 )
@@ -78,3 +79,7 @@ texture = ExtResource( 5 )
 
 [node name="EndingArea" parent="." instance=ExtResource( 6 )]
 position = Vector2( 982, 1 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
