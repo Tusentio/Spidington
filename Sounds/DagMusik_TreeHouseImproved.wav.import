@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DagMusik_TreeHouseImproved.wav-e6a7c6538ff1fce14879efe628899d9e.sample"
+
+[deps]
+
+source_file="res://Sounds/DagMusik_TreeHouseImproved.wav"
+dest_files=[ "res://.import/DagMusik_TreeHouseImproved.wav-e6a7c6538ff1fce14879efe628899d9e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
