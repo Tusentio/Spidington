@@ -62,17 +62,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -391.672
-margin_top = -45.2574
-margin_right = 397.328
-margin_bottom = 147.743
+margin_left = -395.0
+margin_top = -66.0
+margin_right = 393.0
+margin_bottom = 100.0
+grow_horizontal = 2
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "A game by Elias Söderlund, Kevin Sundqvist Norlén, Perat Sawadpol and Tomas Bergström
+custom_constants/line_spacing = 10
+text = "A game by:
+Elias Söderlund,
+Kevin Sundqvist Norlén,
+Perat Sawadpol
+& Tomas Bergström
+
+Font \"Adventurer's Scribbles\" by:
+WildLeoKnight
 
 Thanks for playing!
-
-Press... Esc"
+Press Esc..."
 align = 1
 autowrap = true
 __meta__ = {
