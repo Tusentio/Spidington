@@ -71,9 +71,9 @@ shoot_string={
 
 [physics]
 
+common/enable_pause_aware_picking=true
 2d/physics_engine="GodotPhysics"
 2d/default_gravity=140
-common/enable_pause_aware_picking=true
 
 [rendering]
 
