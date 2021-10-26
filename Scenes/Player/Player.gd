@@ -69,6 +69,12 @@ func _input(event):
 		save_state()
 
 
+func _notification(what):
+	match what:
+		NOTIFICATION_WM_QUIT_REQUEST:
+			save_state()
+
+
 func load_state():
 	var player_data = PlayerData.read()
 	if player_data and player_data.saved:
