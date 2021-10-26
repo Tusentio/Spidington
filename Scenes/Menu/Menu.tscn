@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Logo.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/GameFont.tres" type="DynamicFont" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Logo/SpidingtonLogo4.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/Menu/Logo.gd" type="Script" id=11]
 [ext_resource path="res://Logo/Spidingtonlogo6.png" type="Texture" id=12]
-[ext_resource path="res://Logo/Spidingtonlogo4.png" type="Texture" id=13]
 [ext_resource path="res://Logo/Spidingtonlogo5.png" type="Texture" id=14]
 [ext_resource path="res://Scenes/Menu/RestartButton.gd" type="Script" id=15]
 
@@ -30,7 +29,7 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "idle",
 "speed": 2.0
