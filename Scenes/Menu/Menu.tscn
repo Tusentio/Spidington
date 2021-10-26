@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Logo.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/GameFont.tres" type="DynamicFont" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Logo/Spidingtonlogo6.png" type="Texture" id=12]
 [ext_resource path="res://Logo/Spidingtonlogo4.png" type="Texture" id=13]
 [ext_resource path="res://Logo/Spidingtonlogo5.png" type="Texture" id=14]
+[ext_resource path="res://Scenes/Menu/RestartButton.gd" type="Script" id=15]
 
 [sub_resource type="StyleBoxFlat" id=1]
 corner_radius_top_left = 10
@@ -73,11 +74,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -119.5
+margin_left = -119.0
 margin_top = -20.0
-margin_right = 119.5
-margin_bottom = 20.0
-custom_constants/separation = 51
+margin_right = 120.0
+margin_bottom = 216.0
+custom_constants/separation = 13
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -99,26 +100,25 @@ __meta__ = {
 }
 
 [node name="RestartButton" type="Button" parent="ColorRect/ButtonContainer"]
-margin_top = 121.0
+margin_top = 83.0
 margin_right = 239.0
-margin_bottom = 191.0
+margin_bottom = 153.0
 rect_min_size = Vector2( 0, 70 )
-focus_neighbour_top = NodePath("../QuitButton")
 custom_styles/hover = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Restart"
-script = ExtResource( 4 )
+script = ExtResource( 15 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="QuitButton" type="Button" parent="ColorRect/ButtonContainer"]
-margin_top = 242.0
+margin_top = 166.0
 margin_right = 239.0
-margin_bottom = 312.0
+margin_bottom = 236.0
 rect_min_size = Vector2( 0, 70 )
 focus_neighbour_bottom = NodePath("../PlayButton")
 custom_styles/hover = SubResource( 1 )
@@ -137,6 +137,6 @@ animation = "intro"
 script = ExtResource( 11 )
 
 [connection signal="pressed" from="ColorRect/ButtonContainer/PlayButton" to="ColorRect/ButtonContainer/PlayButton" method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="ColorRect/ButtonContainer/RestartButton" to="ColorRect/ButtonContainer/RestartButton" method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="ColorRect/ButtonContainer/RestartButton" to="ColorRect/ButtonContainer/RestartButton" method="_on_RestartButton_pressed"]
 [connection signal="pressed" from="ColorRect/ButtonContainer/QuitButton" to="ColorRect/ButtonContainer/QuitButton" method="_on_QuitButton_pressed"]
 [connection signal="animation_finished" from="ColorRect/Logo" to="ColorRect/Logo" method="_on_Logo_animation_finished"]
