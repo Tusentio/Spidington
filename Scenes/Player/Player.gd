@@ -11,8 +11,9 @@ export (float) var angular_drag := 0.1
 onready var shoot_origin := $ShootOrigin
 var spurt: Spurt = null
 
-var mouse_update_duration := 0.0
+var mouse_update_delta := 0.0
 var mouse_velocity := Vector2.ZERO
+var saved_mouse_position := Vector2.ZERO
 
 
 func _ready():
@@ -20,16 +21,16 @@ func _ready():
 
 
 func _process(delta):
-	mouse_update_duration += delta
+	mouse_update_delta += delta
 	
 	if is_instance_valid(spurt) and spurt.is_anchored() and spurt.is_hooked():
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		hide_mouse()
 	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		show_mouse()
 
 
 func _exit_tree():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	show_mouse()
 
 
 func _physics_process(delta):
@@ -47,8 +48,8 @@ func _physics_process(delta):
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		mouse_velocity = event.relative / mouse_update_duration
-		mouse_update_duration = 0
+		mouse_velocity = event.relative / mouse_update_delta
+		mouse_update_delta = 0
 	
 	if Input.is_action_just_pressed("shoot_string"):
 		if is_instance_valid(spurt) and spurt.is_anchored():
@@ -77,9 +78,22 @@ func _notification(what):
 			save_state()
 
 
+func hide_mouse():
+	if not saved_mouse_position:
+		saved_mouse_position = get_viewport().get_mouse_position()
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func show_mouse():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if saved_mouse_position:
+		get_viewport().warp_mouse(saved_mouse_position)
+		saved_mouse_position = Vector2.ZERO
+
+
 func load_state():
 	var player_data = PlayerData.read()
-	if player_data and player_data.saved:
+	if player_data.saved:
 		global_position = player_data.global_position
 		rotation = player_data.rotation
 		linear_velocity = player_data.linear_velocity
