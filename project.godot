@@ -36,6 +36,7 @@ boot_splash/bg_color=Color( 1, 1, 1, 1 )
 [autoload]
 
 SceneChanger="*res://Autoload/SceneChanger/SceneChanger.tscn"
+BackgroundMusic="*res://Autoload/BackgroundMusic.tscn"
 
 [display]
 
