@@ -66,6 +66,10 @@ func set_anchor(anchor: Node2D):
 	self.anchor = anchor
 
 
+func length() -> float:
+	return line.points[1].length()
+
+
 func detach():
 	if is_anchored():
 		anchor = null
