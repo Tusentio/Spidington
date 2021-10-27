@@ -41,13 +41,13 @@ func _physics_process(delta):
 		var string_normal := (spurt.global_position - global_position).normalized()
 		var directional_force := -mouse_velocity.dot(string_normal) * move_sensitivity
 		apply_impulse(shoot_origin.global_position - global_position,
-			string_normal.normalized() * clamp(directional_force, 0, max_move_force))
+			string_normal * clamp(directional_force, 0, max_move_force))
 	
 	mouse_velocity = Vector2.ZERO
 
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and mouse_update_delta > 0:
 		mouse_velocity = event.relative / mouse_update_delta
 		mouse_update_delta = 0
 	
