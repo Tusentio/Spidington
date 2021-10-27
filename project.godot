@@ -39,6 +39,7 @@ SceneChanger="*res://Autoload/SceneChanger/SceneChanger.tscn"
 
 [display]
 
+window/vsync/use_vsync=false
 mouse_cursor/custom_image="res://Cursor.png"
 window/stretch/mode="2d"
 

@@ -16,7 +16,7 @@
 [ext_resource path="res://Scenes/Menu/Themes/ButtonNormal.tres" type="StyleBox" id=14]
 [ext_resource path="res://Scenes/Menu/RestartButton.gd" type="Script" id=15]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ), ExtResource( 6 ) ],
 "loop": true,
@@ -121,7 +121,7 @@ script = ExtResource( 3 )
 [node name="Logo" type="AnimatedSprite" parent="ColorRect"]
 position = Vector2( 513.738, 143.894 )
 scale = Vector2( 5.0879, 5.0879 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "intro"
 script = ExtResource( 11 )
 
