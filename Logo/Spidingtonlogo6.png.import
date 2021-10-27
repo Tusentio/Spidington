@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Spidingtonlogo6.png-ebfcbd706790d96c8dd9a67a3aa02755.stex"
+path="res://.import/SpidingtonLogo6.png-bea870836b70ec9f1ed262c296e6fbde.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Logo/Spidingtonlogo6.png"
-dest_files=[ "res://.import/Spidingtonlogo6.png-ebfcbd706790d96c8dd9a67a3aa02755.stex" ]
+source_file="res://Logo/SpidingtonLogo6.png"
+dest_files=[ "res://.import/SpidingtonLogo6.png-bea870836b70ec9f1ed262c296e6fbde.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=0
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
