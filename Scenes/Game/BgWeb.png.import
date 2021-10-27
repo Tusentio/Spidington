@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpidingtonLogo2.png-11ba7deab23e86d7306521157a7d076e.stex"
+path="res://.import/BgWeb.png-0b0dc5ee94f4d108e0bf8b3498207de8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Logo/SpidingtonLogo2.png"
-dest_files=[ "res://.import/SpidingtonLogo2.png-11ba7deab23e86d7306521157a7d076e.stex" ]
+source_file="res://Scenes/Game/BgWeb.png"
+dest_files=[ "res://.import/BgWeb.png-0b0dc5ee94f4d108e0bf8b3498207de8.stex" ]
 
 [params]
 
-compress/mode=0
+compress/mode=3
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=0
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

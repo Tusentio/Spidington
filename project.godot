@@ -28,7 +28,7 @@ _global_script_class_icons={
 
 config/name="Spidington"
 run/main_scene="res://Scenes/Menu/Menu.tscn"
-boot_splash/image="res://Logo/Spidingtonlogo5.png"
+boot_splash/image="res://Logo/SpidingtonLogo_5.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
