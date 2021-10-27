@@ -2,7 +2,7 @@ extends Button
 
 
 func _on_PlayButton_pressed():
-	get_tree().change_scene("res://Scenes/Game/Game.tscn")
+	SceneChanger.change_scene(SceneChanger.GAME);
 	
 func _ready():
 	if PlayerData.read().saved:
