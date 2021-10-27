@@ -14,7 +14,7 @@ onready var line := $Line2D
 
 
 func _process(delta):
-	var string_length = line.points[1].length()
+	var string_length = length()
 	
 	if is_anchored():
 		if string_length > MAX_STRING_LENGTH:
