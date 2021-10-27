@@ -4,7 +4,7 @@
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilesets/Hooks/HookMap.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Game/Web.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Game/BgWeb.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/EndingArea/EndingArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sounds/Music.ogg" type="AudioStream" id=7]
 
