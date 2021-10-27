@@ -38,7 +38,9 @@ func _physics_process(delta):
 	
 	if is_instance_valid(spurt) and spurt.is_anchored() and spurt.is_hooked():
 		var string_normal := (spurt.global_position - global_position).normalized()
-		apply_impulse(shoot_origin.global_position - global_position, string_normal.normalized() * clamp(-mouse_velocity.dot(string_normal) * move_force_multiplier, 0, max_move_force))
+		var directional_force := -mouse_velocity.dot(string_normal) * move_force_multiplier
+		apply_impulse(shoot_origin.global_position - global_position,
+			string_normal.normalized() * clamp(directional_force, 0, max_move_force))
 	
 	mouse_velocity = Vector2.ZERO
 
