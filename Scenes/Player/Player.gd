@@ -3,7 +3,7 @@ extends RigidBody2D
 const scn_spurt := preload("res://Scenes/Spurt/Spurt.tscn")
 
 export (float) var spurt_velocity := 10.0
-export (float) var move_force_multiplier := 0.015
+export (float) var move_force_multiplier := 0.000125
 export (float) var max_move_force := 15
 export (float) var linear_drag := 0.1
 export (float) var angular_drag := 0.1
@@ -38,7 +38,9 @@ func _physics_process(delta):
 	
 	if is_instance_valid(spurt) and spurt.is_anchored() and spurt.is_hooked():
 		var string_normal := (spurt.global_position - global_position).normalized()
-		apply_impulse(shoot_origin.global_position - global_position, string_normal.normalized() * clamp(-mouse_velocity.dot(string_normal) * move_force_multiplier, 0, max_move_force))
+		var directional_force := -mouse_velocity.dot(string_normal) * spurt.length() * move_force_multiplier
+		apply_impulse(shoot_origin.global_position - global_position,
+			string_normal.normalized() * clamp(directional_force, 0, max_move_force))
 	
 	mouse_velocity = Vector2.ZERO
 
