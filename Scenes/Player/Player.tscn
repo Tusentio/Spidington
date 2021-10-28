@@ -17,9 +17,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[node name="Spindel" type="RigidBody2D" groups=[
-"Player",
-]]
+[node name="Spindel" type="RigidBody2D"]
 collision_mask = 2
 continuous_cd = 2
 contact_monitor = true
@@ -32,6 +30,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 1 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="ShootOrigin" type="Position2D" parent="."]

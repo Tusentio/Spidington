@@ -55,6 +55,11 @@ func _physics_process(delta):
 		var collision := move_and_collide(velocity)
 		
 		if collision:
+			var collider = collision.collider
+			if collider is Node and collider.is_in_group("hookables"):
+				pass
+			else:
+				detach()
 			set_velocity(Vector2.ZERO)
 
 
