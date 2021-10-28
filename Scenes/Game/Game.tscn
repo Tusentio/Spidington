@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/Grass/GrassTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/Game/BgWeb.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/EndingArea/EndingArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HookGuide/HookGuide.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Game/house_background.png" type="Texture" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 12, 15, 4, 15, 4, 7, 12, 7 )
@@ -47,6 +48,10 @@ tile_data = PoolIntArray( -6488077, 3, 0, -6488076, 3, 0, -6488075, 3, 0, -64880
 
 [node name="HookGuide" parent="Terrain" instance=ExtResource( 7 )]
 position = Vector2( -78.808, -126.984 )
+
+[node name="Sprite" type="Sprite" parent="Terrain"]
+position = Vector2( -87.4057, -94.8219 )
+texture = ExtResource( 8 )
 
 [node name="Hooks" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
