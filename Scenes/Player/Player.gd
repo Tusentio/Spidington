@@ -79,13 +79,14 @@ func _notification(what):
 
 
 func hide_mouse():
-	_saved_mouse_position = get_viewport().get_mouse_position()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if not _saved_mouse_position:
+		_saved_mouse_position = get_viewport().get_mouse_position()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func show_mouse():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if _saved_mouse_position:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_viewport().warp_mouse(_saved_mouse_position)
 		_saved_mouse_position = Vector2.ZERO
 
