@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Logo.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/GameFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/MenuFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/Menu/QuitButton.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Menu/PlayButton.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Menu/Menu.gd" type="Script" id=5]
