@@ -9,6 +9,15 @@ func _input(event):
 
 func _ready():
 	$Content/Label.percent_visible = 0
+	
+	# Display final time
+	var player_data: PlayerData = PlayerData.read()
+	if player_data.saved:
+		$TimerLabel.text = (String(player_data.time_major) + "." +
+			String(int(player_data.time_minor * 1000)).pad_zeros(3))
+			
+	# Reset save
+	PlayerData.new().save()
 
 func _process(delta):
 	if $Content/Label.percent_visible < 1:

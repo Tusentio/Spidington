@@ -94,4 +94,19 @@ frames = SubResource( 1 )
 animation = "intro"
 script = ExtResource( 8 )
 
+[node name="TimerLabel" type="Label" parent="."]
+margin_left = 7.27956
+margin_top = 0.307919
+margin_right = 68.2796
+margin_bottom = 31.3079
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 1
+text = "0.000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="animation_finished" from="Content/Logo2" to="Content/Logo2" method="_on_Logo_animation_finished"]
