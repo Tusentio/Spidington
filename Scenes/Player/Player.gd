@@ -60,6 +60,7 @@ func _process(delta):
 
 func _exit_tree():
 	show_mouse()
+	save_state()
 
 
 func _physics_process(delta):
@@ -97,18 +98,9 @@ func _input(event):
 			spurt.detach()
 		spurt = null
 	
-	if Input.is_action_just_pressed("pause_menu"):
-		save_state()
-	
 	if Input.is_action_just_pressed("toggle_debug_mode") and OS.is_debug_build():
 		debug_mode = !debug_mode
 		mode = MODE_STATIC if debug_mode else MODE_RIGID
-
-
-func _notification(what):
-	match what:
-		NOTIFICATION_WM_QUIT_REQUEST:
-			save_state()
 
 
 func get_seconds() -> int:
