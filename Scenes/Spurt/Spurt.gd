@@ -29,7 +29,7 @@ func _process(delta):
 			return
 		
 		line.points[1] = to_local(anchor.global_position)
-	else:
+	elif is_hooked():
 		if string_length < MIN_STRING_LENGTH:
 			queue_free()
 			return
