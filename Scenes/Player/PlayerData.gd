@@ -9,6 +9,9 @@ export (float) var rotation: float
 export (Vector2) var linear_velocity: Vector2
 export (float) var angular_velocity: float
 
+export (int) var time_major: int
+export (float) var time_minor: float
+
 
 func save(path = save_path):
 	ResourceSaver.save(path, self, ResourceSaver.FLAG_COMPRESS)

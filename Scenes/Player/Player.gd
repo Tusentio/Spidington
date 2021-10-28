@@ -8,12 +8,16 @@ export (float) var max_move_force := 15
 export (float) var linear_drag := 0.1
 export (float) var angular_drag := 0.1
 
-onready var _shoot_origin := $ShootOrigin
-var _spurt: Spurt = null
+onready var timer_label := $CanvasLayer/TimerLabel
+var time_major: int = 0
+var time_minor: float = 0.0
 
-var _mouse_update_delta := 0.0
-var _mouse_velocity := Vector2.ZERO
-var _saved_mouse_position := Vector2.ZERO
+onready var shoot_origin := $ShootOrigin
+var spurt: Spurt = null
+
+var mouse_update_delta := 0.0
+var mouse_velocity := Vector2.ZERO
+var saved_mouse_position := Vector2.ZERO
 
 
 func _ready():
@@ -21,9 +25,16 @@ func _ready():
 
 
 func _process(delta):
-	_mouse_update_delta += delta
+	mouse_update_delta += delta
 	
-	if is_instance_valid(_spurt) and _spurt.is_anchored() and _spurt.is_hooked():
+	time_minor += delta
+	if time_minor > 1:
+		var major_inc := int(time_minor)
+		time_major += major_inc
+		time_minor -= major_inc
+	timer_label.text = String(get_seconds()) + "." + String(get_millis()).pad_zeros(3)
+	
+	if is_instance_valid(spurt) and spurt.is_anchored() and spurt.is_hooked():
 		hide_mouse()
 	else:
 		show_mouse()
@@ -37,36 +48,36 @@ func _physics_process(delta):
 	linear_velocity *= pow(1 / (1 + linear_drag), delta)
 	angular_velocity *= pow(1 / (1 + angular_drag), delta)
 	
-	if is_instance_valid(_spurt) and _spurt.is_anchored() and _spurt.is_hooked():
-		var string_normal := (_spurt.global_position - global_position).normalized()
-		var directional_force := -_mouse_velocity.dot(string_normal) * move_sensitivity
-		apply_impulse(_shoot_origin.global_position - global_position,
+	if is_instance_valid(spurt) and spurt.is_anchored() and spurt.is_hooked():
+		var string_normal := (spurt.global_position - global_position).normalized()
+		var directional_force := -mouse_velocity.dot(string_normal) * move_sensitivity
+		apply_impulse(shoot_origin.global_position - global_position,
 			string_normal * clamp(directional_force, 0, max_move_force))
 	
-	_mouse_velocity = Vector2.ZERO
+	mouse_velocity = Vector2.ZERO
 
 
 func _input(event):
-	if event is InputEventMouseMotion and _mouse_update_delta > 0:
-		_mouse_velocity = event.relative / _mouse_update_delta
-		_mouse_update_delta = 0
+	if event is InputEventMouseMotion and mouse_update_delta > 0:
+		mouse_velocity = event.relative / mouse_update_delta
+		mouse_update_delta = 0
 	
 	if Input.is_action_just_pressed("shoot_string"):
-		if is_instance_valid(_spurt) and _spurt.is_anchored():
-			_spurt.detach()
+		if is_instance_valid(spurt) and spurt.is_anchored():
+			spurt.detach()
 		
 		var mouse := get_global_mouse_position()
-		var shoot_direction: Vector2 = (mouse - _shoot_origin.global_position).normalized()
+		var shoot_direction: Vector2 = (mouse - shoot_origin.global_position).normalized()
 		
-		_spurt = scn_spurt.instance()
-		_spurt.global_position = _shoot_origin.global_position
-		_spurt.set_velocity(shoot_direction * spurt_velocity)
-		_spurt.set_anchor(_shoot_origin)
-		get_tree().get_root().add_child(_spurt)
+		spurt = scn_spurt.instance()
+		spurt.global_position = shoot_origin.global_position
+		spurt.set_velocity(shoot_direction * spurt_velocity)
+		spurt.set_anchor(shoot_origin)
+		get_tree().get_root().add_child(spurt)
 	elif Input.is_action_just_released("shoot_string"):
-		if is_instance_valid(_spurt) and _spurt.is_anchored():
-			_spurt.detach()
-		_spurt = null
+		if is_instance_valid(spurt) and spurt.is_anchored():
+			spurt.detach()
+		spurt = null
 	
 	if Input.is_action_just_pressed("pause_menu"):
 		save_state()
@@ -78,33 +89,50 @@ func _notification(what):
 			save_state()
 
 
+func get_seconds() -> int:
+	return time_major
+
+
+func get_millis() -> int:
+	return int(time_minor * 1000)
+
+
 func hide_mouse():
-	if not _saved_mouse_position:
-		_saved_mouse_position = get_viewport().get_mouse_position()
+	if not saved_mouse_position:
+		saved_mouse_position = get_viewport().get_mouse_position()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func show_mouse():
-	if _saved_mouse_position:
+	if saved_mouse_position:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_viewport().warp_mouse(_saved_mouse_position)
-		_saved_mouse_position = Vector2.ZERO
+		get_viewport().warp_mouse(saved_mouse_position)
+		saved_mouse_position = Vector2.ZERO
 
 
 func load_state():
-	var player_data = PlayerData.read()
+	var player_data: PlayerData = PlayerData.read()
+	
 	if player_data.saved:
 		global_position = player_data.global_position
 		rotation = player_data.rotation
 		linear_velocity = player_data.linear_velocity
 		angular_velocity = player_data.angular_velocity
+		
+		time_major = player_data.time_major
+		time_minor = player_data.time_minor
 
 
 func save_state():
 	var player_data := PlayerData.new()
+	
 	player_data.saved = true
 	player_data.global_position = global_position
 	player_data.rotation = rotation
 	player_data.linear_velocity = linear_velocity
 	player_data.angular_velocity = angular_velocity
+	
+	player_data.time_major = time_major
+	player_data.time_minor = time_minor
+	
 	player_data.save()
