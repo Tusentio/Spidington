@@ -14,6 +14,7 @@ var spurt: Spurt = null
 var mouse_update_delta := 0.0
 var mouse_velocity := Vector2.ZERO
 var saved_mouse_position := Vector2.ZERO
+var mouse_hidden := false
 
 
 func _ready():
@@ -47,6 +48,11 @@ func _physics_process(delta):
 
 
 func _input(event):
+	if mouse_hidden:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	if event is InputEventMouseMotion and mouse_update_delta > 0:
 		mouse_velocity = event.relative / mouse_update_delta
 		mouse_update_delta = 0
@@ -79,16 +85,19 @@ func _notification(what):
 
 
 func hide_mouse():
-	if not saved_mouse_position:
+	if not mouse_hidden:
+		mouse_hidden = true
 		saved_mouse_position = get_viewport().get_mouse_position()
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func show_mouse():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	if saved_mouse_position:
-		get_viewport().warp_mouse(saved_mouse_position)
-		saved_mouse_position = Vector2.ZERO
+	if mouse_hidden:
+		mouse_hidden = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if saved_mouse_position:
+			get_viewport().warp_mouse(saved_mouse_position)
+			saved_mouse_position = Vector2.ZERO
 
 
 func load_state():
