@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Cursor.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/GameFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/HookGuide/HookGuide.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Warning"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="HookGuide" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Cursor" type="Sprite" parent="."]
+position = Vector2( 0, 18 )
+rotation = -1.5708
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 1 )
+
+[node name="Message" type="Label" parent="."]
+margin_left = 2.75
+margin_right = 481.75
+margin_bottom = 65.0
+rect_scale = Vector2( 0.25, 0.25 )
+custom_fonts/font = ExtResource( 2 )
+text = "Hold left mouse button to spurt on hook,
+Move mouse to swing."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+anims/Warning = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
