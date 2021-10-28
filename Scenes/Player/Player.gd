@@ -19,6 +19,12 @@ var mouse_update_delta := 0.0
 var mouse_velocity := Vector2.ZERO
 var saved_mouse_position := Vector2.ZERO
 
+const DEBUG_SPEED := 64.0
+const DEBUG_ACCELERATION := 16.0
+
+var debug_mode := false
+var debug_speed := DEBUG_SPEED
+
 
 func _ready():
 	load_state()
@@ -38,6 +44,18 @@ func _process(delta):
 		hide_mouse()
 	else:
 		show_mouse()
+	
+	if debug_mode:
+		var debug_move := ((Vector2.LEFT if Input.is_action_pressed("debug_left") else Vector2.ZERO) +
+			(Vector2.RIGHT if Input.is_action_pressed("debug_right") else Vector2.ZERO) +
+			(Vector2.UP if Input.is_action_pressed("debug_up") else Vector2.ZERO) +
+			(Vector2.DOWN if Input.is_action_pressed("debug_down") else Vector2.ZERO))
+		
+		if debug_move:
+			translate(debug_move.normalized() * debug_speed * delta)
+			debug_speed += DEBUG_ACCELERATION * delta
+		else:
+			debug_speed = DEBUG_SPEED
 
 
 func _exit_tree():
@@ -81,6 +99,10 @@ func _input(event):
 	
 	if Input.is_action_just_pressed("pause_menu"):
 		save_state()
+	
+	if Input.is_action_just_pressed("toggle_debug_mode") and OS.is_debug_build():
+		debug_mode = !debug_mode
+		mode = MODE_STATIC if debug_mode else MODE_RIGID
 
 
 func _notification(what):
