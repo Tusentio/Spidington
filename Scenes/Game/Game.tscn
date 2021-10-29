@@ -323,15 +323,17 @@ position = Vector2( -144, -3688 )
 rotation = -1.57079
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -130.714, -69.0694 )
+position = Vector2( -130, -69 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
 current = true
 zoom = Vector2( 0.4, 0.4 )
-limit_left = -205
+limit_left = -204
 limit_right = 205
 limit_bottom = 0
+limit_smoothed = true
 smoothing_enabled = true
+smoothing_speed = 6.0
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
