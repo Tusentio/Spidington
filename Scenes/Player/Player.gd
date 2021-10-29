@@ -7,6 +7,10 @@ export (float) var move_sensitivity := 0.012
 export (float) var max_move_force := 15
 export (float) var linear_drag := 0.1
 export (float) var angular_drag := 0.1
+export (float) var pitch_affect := 0.001
+
+onready var background_music: AudioStreamPlayer = get_tree().get_nodes_in_group("music")[0]
+onready var _pitch_scale := background_music.pitch_scale
 
 onready var timer_label := $CanvasLayer/TimerLabel
 var time_major: int = 0
@@ -56,9 +60,13 @@ func _process(delta):
 			debug_speed += DEBUG_ACCELERATION * delta
 		else:
 			debug_speed = DEBUG_SPEED
+	
+	background_music.pitch_scale = _pitch_scale + linear_velocity.length() * pitch_affect
 
 
 func _exit_tree():
+	background_music.pitch_scale = _pitch_scale
+	
 	show_mouse()
 	save_state()
 

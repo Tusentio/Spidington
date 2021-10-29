@@ -2,7 +2,9 @@
 
 [ext_resource path="res://Sounds/Music.ogg" type="AudioStream" id=1]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer"]
+[node name="BackgroundMusic" type="AudioStreamPlayer" groups=[
+"music",
+]]
 stream = ExtResource( 1 )
 volume_db = -10.0
 autoplay = true
