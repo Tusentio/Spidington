@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=13 format=2]
 
-[ext_resource path="res://Tilesets/Grass/Grass.png" type="Texture" id=1]
+[ext_resource path="res://Tilesets/Nest/Nest.png" type="Texture" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -36,7 +36,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 0, 0, 16, 0, 0 )
 points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 
 [resource]
-0/name = "Grass"
+0/name = "Nest"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
@@ -211,7 +211,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 9/shape_one_way_margin = 0.0
 9/shapes = [  ]
 9/z_index = 0
-10/name = "Grass Slope 2"
+10/name = "Nest Slope 2"
 10/texture = ExtResource( 1 )
 10/tex_offset = Vector2( 0, 0 )
 10/modulate = Color( 1, 1, 1, 1 )
@@ -232,7 +232,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
-11/name = "Grass Slope 1"
+11/name = "Nest Slope 1"
 11/texture = ExtResource( 1 )
 11/tex_offset = Vector2( 0, 0 )
 11/modulate = Color( 1, 1, 1, 1 )
@@ -253,7 +253,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 11/z_index = 0
-12/name = "Grass Slope 4"
+12/name = "Nest Slope 4"
 12/texture = ExtResource( 1 )
 12/tex_offset = Vector2( 0, 0 )
 12/modulate = Color( 1, 1, 1, 1 )
@@ -274,7 +274,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 12/z_index = 0
-13/name = "Grass Slope 3"
+13/name = "Nest Slope 3"
 13/texture = ExtResource( 1 )
 13/tex_offset = Vector2( 0, 0 )
 13/modulate = Color( 1, 1, 1, 1 )
@@ -295,7 +295,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 13/z_index = 0
-14/name = "Grass.png 14"
+14/name = "Red Bricks"
 14/texture = ExtResource( 1 )
 14/tex_offset = Vector2( 0, 0 )
 14/modulate = Color( 1, 1, 1, 1 )
@@ -309,7 +309,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 14/shape_one_way_margin = 0.0
 14/shapes = [  ]
 14/z_index = 0
-15/name = "Grass.png 15"
+15/name = "Red Bricks Slope 1"
 15/texture = ExtResource( 1 )
 15/tex_offset = Vector2( 0, 0 )
 15/modulate = Color( 1, 1, 1, 1 )
@@ -323,7 +323,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 15/shape_one_way_margin = 0.0
 15/shapes = [  ]
 15/z_index = 0
-16/name = "Grass.png 16"
+16/name = "Red Bircks Slope 2"
 16/texture = ExtResource( 1 )
 16/tex_offset = Vector2( 0, 0 )
 16/modulate = Color( 1, 1, 1, 1 )
@@ -337,7 +337,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 16/shape_one_way_margin = 0.0
 16/shapes = [  ]
 16/z_index = 0
-17/name = "Grass.png 17"
+17/name = "Red Bricks Slope 3"
 17/texture = ExtResource( 1 )
 17/tex_offset = Vector2( 0, 0 )
 17/modulate = Color( 1, 1, 1, 1 )
@@ -351,7 +351,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 17/shape_one_way_margin = 0.0
 17/shapes = [  ]
 17/z_index = 0
-18/name = "Grass.png 18"
+18/name = "Red Bricks Slope 4"
 18/texture = ExtResource( 1 )
 18/tex_offset = Vector2( 0, 0 )
 18/modulate = Color( 1, 1, 1, 1 )
@@ -365,7 +365,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 18/shape_one_way_margin = 0.0
 18/shapes = [  ]
 18/z_index = 0
-19/name = "Grass.png 19"
+19/name = "Roof"
 19/texture = ExtResource( 1 )
 19/tex_offset = Vector2( 0, 0 )
 19/modulate = Color( 1, 1, 1, 1 )
@@ -379,7 +379,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 19/shape_one_way_margin = 0.0
 19/shapes = [  ]
 19/z_index = 0
-20/name = "Grass.png 20"
+20/name = "Roof 2"
 20/texture = ExtResource( 1 )
 20/tex_offset = Vector2( 0, 0 )
 20/modulate = Color( 1, 1, 1, 1 )
@@ -393,7 +393,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 20/shape_one_way_margin = 0.0
 20/shapes = [  ]
 20/z_index = 0
-21/name = "Grass.png 21"
+21/name = "Roof Right"
 21/texture = ExtResource( 1 )
 21/tex_offset = Vector2( 0, 0 )
 21/modulate = Color( 1, 1, 1, 1 )
@@ -407,7 +407,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 21/shape_one_way_margin = 0.0
 21/shapes = [  ]
 21/z_index = 0
-22/name = "Grass.png 22"
+22/name = "Roof Left"
 22/texture = ExtResource( 1 )
 22/tex_offset = Vector2( 0, 0 )
 22/modulate = Color( 1, 1, 1, 1 )
@@ -421,7 +421,7 @@ points = PoolVector2Array( 16, 0, 16, 16, 0, 0 )
 22/shape_one_way_margin = 0.0
 22/shapes = [  ]
 22/z_index = 0
-23/name = "Grass.png 23"
+23/name = "Window"
 23/texture = ExtResource( 1 )
 23/tex_offset = Vector2( 0, 0 )
 23/modulate = Color( 1, 1, 1, 1 )
