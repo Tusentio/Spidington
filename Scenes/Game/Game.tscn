@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tilesets/Grass/GrassTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/EndingArea/EndingArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HookGuide/HookGuide.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Game/house_background.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/Game/tree_background.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 12, 15, 4, 15, 4, 7, 12, 7 )
@@ -38,8 +39,16 @@ points = PoolVector2Array( 12, 15, 4, 15, 4, 7, 12, 7 )
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="TreeBackground" type="Sprite" parent="."]
+position = Vector2( 116.301, -1785.73 )
+texture = ExtResource( 9 )
+
+[node name="HouseBackground" type="Sprite" parent="."]
 position = Vector2( -103.304, -126.686 )
+texture = ExtResource( 8 )
+
+[node name="HouseBackground2" type="Sprite" parent="."]
+position = Vector2( 109.377, -2009.45 )
 texture = ExtResource( 8 )
 
 [node name="Terrain" type="TileMap" parent="."]
