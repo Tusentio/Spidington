@@ -5,7 +5,7 @@ const scn_spurt := preload("res://Scenes/Spurt/Spurt.tscn")
 export (float) var spurt_velocity := 10.0
 export (float) var move_sensitivity := 0.012
 export (float) var max_move_force := 15
-export (float) var linear_drag := 0.1
+export (float) var linear_drag := 0.25
 export (float) var angular_drag := 0.1
 
 onready var timer_label := $CanvasLayer/TimerLabel
