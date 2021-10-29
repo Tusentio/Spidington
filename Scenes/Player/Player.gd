@@ -8,6 +8,7 @@ export (float) var max_move_force := 15
 export (float) var linear_drag := 0.1
 export (float) var angular_drag := 0.1
 export (float) var pitch_affect := 0.0005
+export (float) var pitch_lerp_factor := 0.05
 
 onready var background_music: AudioStreamPlayer = get_tree().get_nodes_in_group("music")[0]
 onready var _pitch_scale := background_music.pitch_scale
@@ -61,7 +62,8 @@ func _process(delta):
 		else:
 			debug_speed = DEBUG_SPEED
 	
-	background_music.pitch_scale = _pitch_scale + linear_velocity.length() * pitch_affect
+	background_music.pitch_scale = lerp(background_music.pitch_scale, _pitch_scale +
+		linear_velocity.length() * pitch_affect, 1 - pow(pitch_lerp_factor, delta))
 
 
 func _exit_tree():
