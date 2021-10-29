@@ -1,40 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Tilesets/Grass/GrassTileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Tilesets/Hooks/HookMap.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Hook/Hook.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Game/BgWeb.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/EndingArea/EndingArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HookGuide/HookGuide.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Game/house_background.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Game/tree_background.png" type="Texture" id=9]
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-points = PoolVector2Array( 12, 15, 4, 15, 4.08448, 0.709396, 12.1328, 0.644493 )
-
-[sub_resource type="TileSet" id=2]
-0/name = "HookMap.png 0"
-0/texture = ExtResource( 4 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 16, 16 )
-0/tile_mode = 0
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 1 )
-0/shape_one_way = false
-0/shape_one_way_margin = 1.0
-0/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 1 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
-0/z_index = 0
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -63,6 +37,292 @@ tile_data = PoolIntArray( -16842765, 3, 0, -16842764, 3, 0, -16842763, 3, 0, -16
 [node name="HookGuide" parent="Terrain" instance=ExtResource( 7 )]
 position = Vector2( -74.8154, 884.595 )
 
+<<<<<<< HEAD
+[node name="Hooks" type="Node2D" parent="."]
+
+[node name="Hook1" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 104, -136 )
+
+[node name="Hook2" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -104, -136 )
+
+[node name="Hook3" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -120, -328 )
+
+[node name="Hook4" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -56, -376 )
+
+[node name="Hook5" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -424 )
+
+[node name="Hook6" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 88, -472 )
+
+[node name="Hook7" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -520 )
+
+[node name="Hook8" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 88, -584 )
+
+[node name="Hook9" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -8, -584 )
+
+[node name="Hook10" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -136, -600 )
+
+[node name="Hook11" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -104, -728 )
+
+[node name="Hook12" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -792 )
+
+[node name="Hook13" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -872 )
+
+[node name="Hook14" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -24, -952 )
+
+[node name="Hook15" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -136, -1032 )
+
+[node name="Hook16" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -88, -1128 )
+
+[node name="Hook17" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 88, -1128 )
+
+[node name="Hook18" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -1272 )
+
+[node name="Hook19" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -136, -1272 )
+
+[node name="Hook20" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -40, -1368 )
+
+[node name="Hook21" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -1368 )
+
+[node name="Hook22" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -136, -1448 )
+
+[node name="Hook23" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -1448 )
+
+[node name="Hook24" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -1640 )
+
+[node name="Hook25" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -40, -1640 )
+
+[node name="Hook26" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -104, -1768 )
+
+[node name="Hook27" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 104, -1768 )
+
+[node name="Hook28" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -104, -1928 )
+
+[node name="Hook29" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 104, -1928 )
+
+[node name="Hook30" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -2168 )
+
+[node name="Hook31" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -24, -2168 )
+
+[node name="Hook32" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -88, -2344 )
+
+[node name="Hook33" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 88, -2344 )
+
+[node name="Hook34" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -2568 )
+
+[node name="Hook35" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -40, -2568 )
+
+[node name="Hook36" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -56, -2744 )
+
+[node name="Hook37" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 56, -2744 )
+
+[node name="Hook38" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 0, -2968 )
+
+[node name="Hook39" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -104, -3040 )
+
+[node name="Hook40" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 104, -3040 )
+
+[node name="Hook41" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 120, -3096 )
+
+[node name="Hook42" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -120, -3096 )
+
+[node name="Hook43" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -88, -3192 )
+
+[node name="Hook44" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 88, -3192 )
+
+[node name="Hook45" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 0, -3336 )
+
+[node name="Hook46" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 0, -3512 )
+
+[node name="Hook47" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 0, -3696 )
+
+[node name="Hook49" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -104, -3760 )
+
+[node name="Hook50" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -3760 )
+
+[node name="Hook51" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 88, -3712 )
+
+[node name="Hook52" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 120, -3824 )
+
+[node name="Hook53" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -3824 )
+
+[node name="Hook54" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -88, -3824 )
+
+[node name="Hook55" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -120, -3888 )
+
+[node name="Hook56" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -3888 )
+
+[node name="Hook57" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 120, -3952 )
+
+[node name="Hook58" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -3952 )
+
+[node name="Hook59" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -88, -3952 )
+
+[node name="Hook60" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -120, -4016 )
+
+[node name="Hook61" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -4016 )
+
+[node name="Hook62" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 120, -4080 )
+
+[node name="Hook63" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -4080 )
+
+[node name="Hook64" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -120, -4144 )
+
+[node name="Hook65" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 8, -4144 )
+
+[node name="Hook66" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4120 )
+
+[node name="Hook67" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4168 )
+
+[node name="Hook68" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4152 )
+
+[node name="Hook69" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4184 )
+
+[node name="Hook70" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4200 )
+
+[node name="Hook71" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4216 )
+
+[node name="Hook72" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4232 )
+
+[node name="Hook73" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4248 )
+
+[node name="Hook74" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4264 )
+
+[node name="Hook75" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4280 )
+
+[node name="Hook76" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4296 )
+
+[node name="Hook77" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4312 )
+
+[node name="Hook78" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4328 )
+
+[node name="Hook79" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 136, -4344 )
+
+[node name="Hook80" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4360 )
+
+[node name="Hook81" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 40, -4392 )
+
+[node name="Hook82" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 8, -4480 )
+
+[node name="Hook83" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -56, -4432 )
+
+[node name="Hook84" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -88, -4432 )
+
+[node name="Hook85" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -104, -4488 )
+
+[node name="Hook86" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -120, -4624 )
+
+[node name="Hook87" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 8, -4632 )
+
+[node name="Hook88" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -72, -4744 )
+
+[node name="Hook89" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 0, -4776 )
+rotation = -1.57079
+
+[node name="Hook92" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 112, -4920 )
+rotation = -1.57079
+
+[node name="Hook90" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 24, -4896 )
+
+[node name="Hook93" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 72, -5000 )
+
+[node name="Hook91" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( 144, -4808 )
+rotation = 1.57079
+
+[node name="Hook48" parent="Hooks" instance=ExtResource( 4 )]
+position = Vector2( -144, -3688 )
+rotation = -1.57079
+=======
 [node name="Hooks" type="TileMap" parent="." groups=[
 "hookables",
 ]]
@@ -72,7 +332,8 @@ cell_size = Vector2( 16, 16 )
 collision_layer = 4
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( -16383999, 0, 0, -16383997, 0, 0, -16383995, 0, 0, -16318462, 0, 0, -16318460, 0, 0, -16318458, 0, 0, -15990777, 0, 0, -15859711, 0, 0, -15532024, 0, 0, -15400960, 0, 0, -15204357, 0, 0, -14811136, 0, 0, -14680072, 0, 0, -14155783, 0, 0, -14155776, 0, 0, -13893638, 0, 0, -13893636, 0, 0, -13828094, 0, 0, -13697022, 0, 0, -13631480, 0, 0, -13565950, 0, 0, -13500408, 0, 0, -13434878, 0, 0, -13369336, 0, 0, -13303806, 0, 0, -13238264, 0, 0, -13172734, 0, 0, -13107192, 0, 0, -13041662, 0, 0, -12976120, 0, 0, -12910590, 0, 0, -12845048, 0, 0, -12713992, 0, 0, -12779520, 0, 0, -12713976, 0, 0, -12517375, 0, 0, -12517369, 0, 0, -12189704, 0, 0, -12255231, 0, 0, -11927558, 0, 0, -11993087, 0, 0, -11993081, 0, 0, -11665416, 0, 0, -11730943, 0, 0, -11403270, 0, 0, -11468799, 0, 0, -11468793, 0, 0, -11141127, 0, 0, -11206655, 0, 0, -11010043, 0, 0, -10878985, 0, 0, -10878977, 0, 0, -10944512, 0, 0, -10158081, 0, 0, -10223616, 0, 0, -9437185, 0, 0, -9502720, 0, 0, -8847366, 0, 0, -8912891, 0, 0, -8454152, 0, 0, -8519673, 0, 0, -8192007, 0, 0, -8257530, 0, 0, -7929857, 0, 0, -7995392, 0, 0, -7012356, 0, 0, -7077885, 0, 0, -6291459, 0, 0, -6356990, 0, 0, -5373958, 0, 0, -5439483, 0, 0, -4653058, 0, 0, -4718591, 0, 0, -3670023, 0, 0, -3735546, 0, 0, -3014663, 0, 0, -3080186, 0, 0, -2490371, 0, 0, -2555902, 0, 0, -1703945, 0, 0, -1769464, 0, 0, -1376259, 0, 0, -1441790, 0, 0, -983049, 0, 0, -1048568, 0, 0, -393222, 0, 0, -458747, 0, 0, -9, 0, 0, 327678, 0, 0, 589832, 0, 0, 917506, 0, 0, 1245177, 0, 0, 1769463, 0, 0, 1835007, 0, 0, 1769477, 0, 0, 2031624, 0, 0, 2228229, 0, 0, 2424833, 0, 0, 2686972, 0, 0, 2883576, 0, 0, 3670009, 0, 0, 3604486, 0, 0 )
+tile_data = PoolIntArray( -16383999, 0, 0, -16383997, 0, 0, -16383995, 0, 0, -16318462, 0, 0, -16318460, 0, 0, -16318458, 0, 0, -15990777, 0, 0, -15859711, 0, 0, -15532024, 0, 0, -15400960, 0, 0, -15204357, 0, 0, -14811136, 0, 0, -14680072, 0, 0, -14155783, 0, 0, -14155776, 0, 0, -13893638, 0, 0, -13893636, 0, 0, -13828094, 0, 0, -13697022, 0, 0, -13631480, 0, 0, -13565950, 0, 0, -13500408, 0, 0, -13434878, 0, 0, -13369336, 0, 0, -13303806, 0, 0, -13238264, 0, 0, -13172734, 0, 0, -13107192, 0, 0, -13041662, 0, 0, -12976120, 0, 0, -12910590, 0, 0, -12845048, 0, 0, -12713992, 0, 0, -12779520, 0, 0, -12713976, 0, 0, -12517375, 0, 0, -12517369, 0, 0, -12189704, 0, 0, -12255231, 0, 0, -11927558, 0, 0, -11993087, 0, 0, -11993081, 0, 0, -11665416, 0, 0, -11730943, 0, 0, -11403270, 0, 0, -11468799, 0, 0, -11468793, 0, 0, -11141127, 0, 0, -11206655, 0, 0, -11010043, 0, 0, -10878985, 0, 0, -10878977, 0, 0, -10944512, 0, 0, -10158081, 0, 0, -10223616, 0, 0, -9437185, 0, 0, -9502720, 0, 0, -8847366, 0, 0, -8912891, 0, 0, -8454152, 0, 0, -8519673, 0, 0, -8192007, 0, 0, -8257530, 0, 0, -7929857, 0, 0, -7995392, 0, 0, -7012356, 0, 0, -7077885, 0, 0, -6291459, 0, 0, -6356990, 0, 0, -5373958, 0, 0, -5439483, 0, 0, -4653058, 0, 0, -4718591, 0, 0, -3670023, 0, 0, -3735546, 0, 0, -3014663, 0, 0, -3080186, 0, 0, -2555908, 0, 0, -2621437, 0, 0, -1703945, 0, 0, -1769464, 0, 0, -1310724, 0, 0, -1376253, 0, 0, -983049, 0, 0, -1048568, 0, 0, -393222, 0, 0, -458747, 0, 0, -9, 0, 0, 327678, 0, 0, 589832, 0, 0, 917506, 0, 0, 1245177, 0, 0, 1769463, 0, 0, 1835007, 0, 0, 1769477, 0, 0, 2031624, 0, 0, 2228229, 0, 0, 2424833, 0, 0, 2686972, 0, 0, 2883576, 0, 0, 3670009, 0, 0, 3604486, 0, 0 )
+>>>>>>> d3a127c2a6d1301ec99e2fe12ffe08574bfb8f49
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -130.714, -69.0694 )
