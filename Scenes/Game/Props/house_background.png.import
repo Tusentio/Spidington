@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/house_background.png-92fdccca5e91589f1b3023b44eb82a9e.stex"
+path="res://.import/house_background.png-19c042a70f8752b1a1a555ec521d78e4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Game/house_background.png"
-dest_files=[ "res://.import/house_background.png-92fdccca5e91589f1b3023b44eb82a9e.stex" ]
+source_file="res://Scenes/Game/Props/house_background.png"
+dest_files=[ "res://.import/house_background.png-19c042a70f8752b1a1a555ec521d78e4.stex" ]
 
 [params]
 

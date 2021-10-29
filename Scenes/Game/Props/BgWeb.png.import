@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cloud.png-e2f6aa96a7466b5ef9d18a4cfedfdde7.stex"
+path="res://.import/BgWeb.png-24deb2055a8fc263eb7dd2e53595a5db.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Game/Cloud.png"
-dest_files=[ "res://.import/Cloud.png-e2f6aa96a7466b5ef9d18a4cfedfdde7.stex" ]
+source_file="res://Scenes/Game/Props/BgWeb.png"
+dest_files=[ "res://.import/BgWeb.png-24deb2055a8fc263eb7dd2e53595a5db.stex" ]
 
 [params]
 
