@@ -16,7 +16,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 0.639216, 0.00392157, 0 ), Color( 1, 0.639216, 0.00392157, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Overlay:rect_scale")
@@ -40,6 +40,7 @@ anims/Fade = SubResource( 1 )
 [node name="Overlay" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 512, 300 )
 mouse_filter = 2
 color = Color( 1, 1, 1, 0 )
