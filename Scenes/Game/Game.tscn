@@ -423,8 +423,8 @@ smoothing_speed = 6.0
 [node name="Background" type="ParallaxBackground" parent="."]
 
 [node name="NestLayer" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0.4, 0.4 )
-motion_mirroring = Vector2( 0, 800 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 0, 1024 )
 
 [node name="Background" type="Sprite" parent="Background/NestLayer"]
 texture = ExtResource( 11 )
