@@ -5,8 +5,6 @@ const scn_spurt := preload("res://Scenes/Spurt/Spurt.tscn")
 export (float) var spurt_velocity := 10.0
 export (float) var move_sensitivity := 0.012
 export (float) var max_move_force := 15
-export (float) var linear_drag := 0.1
-export (float) var angular_drag := 0.1
 export (float) var pitch_affect := 0.0005
 export (float) var pitch_lerp_factor := 0.05
 
@@ -73,10 +71,7 @@ func _exit_tree():
 	save_state()
 
 
-func _physics_process(delta):
-	linear_velocity *= pow(1 / (1 + linear_drag), delta)
-	angular_velocity *= pow(1 / (1 + angular_drag), delta)
-	
+func _physics_process(delta):	
 	if is_instance_valid(spurt) and spurt.is_anchored() and spurt.is_hooked():
 		var string_normal := (spurt.global_position - global_position).normalized()
 		var directional_force := -mouse_velocity.dot(string_normal) * move_sensitivity

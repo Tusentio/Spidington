@@ -143,6 +143,8 @@ common/enable_pause_aware_picking=true
 2d/sleep_threshold_linear=0.5
 2d/sleep_threshold_angular=0.05
 2d/default_gravity=140
+2d/default_linear_damp=0.2
+2d/default_angular_damp=2.0
 
 [rendering]
 
