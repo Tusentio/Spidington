@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HookMap.png-7206a5e4f22fe86967270aad3bbc533d.stex"
+path="res://.import/Hook.png-7cd19f0df90a208a2e4f13361ed3c6b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Tilesets/Hooks/HookMap.png"
-dest_files=[ "res://.import/HookMap.png-7206a5e4f22fe86967270aad3bbc533d.stex" ]
+source_file="res://Scenes/Hook/Hook.png"
+dest_files=[ "res://.import/Hook.png-7cd19f0df90a208a2e4f13361ed3c6b2.stex" ]
 
 [params]
 
