@@ -18,12 +18,15 @@ func _process(delta):
 	
 	if is_anchored():
 		if string_length > MAX_STRING_LENGTH:
+			if is_hooked():
+				$SnapSound.play()
 			detach()
 			return
 		
 		var space_state := get_world_2d().direct_space_state
 		var obstruction := space_state.intersect_ray(global_position, anchor.global_position, [], 0b10)
 		if obstruction:
+			$SnapSound.play()
 			line.points[1] = to_local(obstruction.position)
 			detach()
 			return
@@ -55,11 +58,13 @@ func _physics_process(delta):
 		var collision := move_and_collide(velocity)
 		
 		if collision:
-			var collider = collision.collider
-			if collider is Node and collider.is_in_group("hookables"):
-				pass
-			else:
-				detach()
+			if is_anchored():
+				var collider = collision.collider
+				if collider is Hook:
+					collider.anchored()
+				else:
+					detach()
+			
 			set_velocity(Vector2.ZERO)
 
 

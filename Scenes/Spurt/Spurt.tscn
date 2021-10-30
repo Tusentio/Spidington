@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Spurt/Spurt.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Spurt/StringSnap.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/RandomPitchAudio.gd" type="Script" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 0.5
@@ -17,3 +19,11 @@ default_color = Color( 1, 1, 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="SnapSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.0
+pitch_scale = 1.2
+attenuation = 1.86607
+script = ExtResource( 3 )
+pitch_scale_range = 0.5

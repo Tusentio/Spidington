@@ -95,6 +95,8 @@ func _input(event):
 		if is_instance_valid(spurt) and spurt.is_anchored():
 			spurt.detach()
 		
+		$SpurtSound.play()
+		
 		var mouse := get_global_mouse_position()
 		var shoot_direction: Vector2 = (mouse - shoot_origin.global_position).normalized()
 		

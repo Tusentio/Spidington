@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "Hook",
+"language": "GDScript",
+"path": "res://Scenes/Hook/Hook.gd"
+}, {
 "base": "Resource",
 "class": "PlayerData",
 "language": "GDScript",
@@ -20,6 +25,7 @@ _global_script_classes=[ {
 "path": "res://Scenes/Spurt/Spurt.gd"
 } ]
 _global_script_class_icons={
+"Hook": "",
 "PlayerData": "",
 "Spurt": ""
 }

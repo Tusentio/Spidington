@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Spurt.ogg-494c759ca894a49170863d6a2ec600b0.oggstr"
+
+[deps]
+
+source_file="res://Scenes/Player/Spurt.ogg"
+dest_files=[ "res://.import/Spurt.ogg-494c759ca894a49170863d6a2ec600b0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
