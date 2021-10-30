@@ -20,8 +20,7 @@ animations = [ {
 
 [node name="Spindel" type="RigidBody2D"]
 collision_mask = 2
-continuous_cd = 2
-contact_monitor = true
+continuous_cd = 1
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -31,6 +30,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, 1 )
 frames = SubResource( 2 )
+frame = 1
 playing = true
 
 [node name="ShootOrigin" type="Position2D" parent="."]
