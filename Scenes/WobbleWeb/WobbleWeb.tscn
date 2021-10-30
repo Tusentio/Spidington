@@ -8,8 +8,7 @@
 radius = 75.0
 
 [node name="WobbleWeb" type="Area2D"]
-collision_layer = 6
-collision_mask = 0
+collision_layer = 0
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -21,6 +20,9 @@ texture = ExtResource( 1 )
 anims/Wobble = ExtResource( 2 )
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+modulate = Color( 1, 1, 1, 0.192157 )
+show_behind_parent = true
+position = Vector2( 4.62494, -7.14762 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="." to="." method="_on_WobbleWeb_body_entered"]
