@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scenes/HookGuide/HookGuide.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Game/Props/house_background.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Game/Props/tree_background.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/WobbleWeb/WobbleWeb.tscn" type="PackedScene" id=10]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -26,6 +27,21 @@ texture = ExtResource( 8 )
 [node name="House2" type="Sprite" parent="Props"]
 position = Vector2( 109.377, -2009.45 )
 texture = ExtResource( 8 )
+
+[node name="WobbleWeb" parent="Props" instance=ExtResource( 10 )]
+position = Vector2( 166.775, -116.312 )
+
+[node name="WobbleWeb2" parent="Props" instance=ExtResource( 10 )]
+position = Vector2( -186.474, -1110.86 )
+
+[node name="WobbleWeb3" parent="Props" instance=ExtResource( 10 )]
+position = Vector2( 189.131, -1481.95 )
+
+[node name="WobbleWeb4" parent="Props" instance=ExtResource( 10 )]
+position = Vector2( -147.178, -2448.84 )
+
+[node name="WobbleWeb5" parent="Props" instance=ExtResource( 10 )]
+position = Vector2( 94.4839, -4624.46 )
 
 [node name="Terrain" type="TileMap" parent="."]
 position = Vector2( 0, -1024 )
@@ -360,7 +376,6 @@ motion_mirroring = Vector2( 500, 300 )
 
 [node name="WebBig" type="Sprite" parent="Background/CloseLayer"]
 position = Vector2( 375.988, 109.349 )
-scale = Vector2( 1.75, 1.75 )
 texture = ExtResource( 5 )
 
 [node name="WebSmall" type="Sprite" parent="Background/CloseLayer"]
