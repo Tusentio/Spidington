@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/Game/Props/tree_background.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/WobbleWeb/WobbleWeb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Game/Background.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Game/Props/scarecrow_background.png" type="Texture" id=12]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -330,6 +331,10 @@ texture = ExtResource( 8 )
 [node name="House2" type="Sprite" parent="Map/Props"]
 position = Vector2( 106, -2009 )
 texture = ExtResource( 8 )
+
+[node name="Scarecrow" type="Sprite" parent="Map/Props"]
+position = Vector2( 84.0987, -2910.79 )
+texture = ExtResource( 12 )
 
 [node name="WobbleWeb" parent="Map/Props" instance=ExtResource( 10 )]
 position = Vector2( 166, -116 )
