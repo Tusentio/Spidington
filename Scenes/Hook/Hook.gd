@@ -4,3 +4,4 @@ class_name Hook
 
 func anchored():
 	$HitSound.play()
+	$Animator.play("Anchored");
