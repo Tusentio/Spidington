@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Game/Props/house_background.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Game/Props/tree_background.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/WobbleWeb/WobbleWeb.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Game/Background.png" type="Texture" id=11]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -360,9 +361,16 @@ smoothing_speed = 6.0
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
+[node name="NestLayer" type="ParallaxLayer" parent="Background"]
+motion_scale = Vector2( 0.4, 0.4 )
+motion_mirroring = Vector2( 0, 800 )
+
+[node name="Background" type="Sprite" parent="Background/NestLayer"]
+texture = ExtResource( 11 )
+
 [node name="FarLayer" type="ParallaxLayer" parent="Background"]
 modulate = Color( 1, 1, 1, 0.313726 )
-motion_scale = Vector2( 0.5, 0.5 )
+motion_scale = Vector2( 0.6, 0.6 )
 motion_mirroring = Vector2( 500, 300 )
 
 [node name="WebBig" type="Sprite" parent="Background/FarLayer"]
@@ -376,7 +384,7 @@ texture = ExtResource( 5 )
 
 [node name="CloseLayer" type="ParallaxLayer" parent="Background"]
 modulate = Color( 1, 1, 1, 0.588235 )
-motion_scale = Vector2( 0.75, 0.75 )
+motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 500, 300 )
 
 [node name="WebBig" type="Sprite" parent="Background/CloseLayer"]
