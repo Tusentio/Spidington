@@ -320,31 +320,31 @@ position = Vector2( 0, 1024 )
 z_index = -1
 
 [node name="Tree" type="Sprite" parent="Map/Props"]
-position = Vector2( 116.301, -1785.73 )
+position = Vector2( 116, -1785 )
 texture = ExtResource( 9 )
 
 [node name="House" type="Sprite" parent="Map/Props"]
-position = Vector2( -103.304, -126.686 )
+position = Vector2( -104, -126 )
 texture = ExtResource( 8 )
 
 [node name="House2" type="Sprite" parent="Map/Props"]
-position = Vector2( 109.377, -2009.45 )
+position = Vector2( 106, -2009 )
 texture = ExtResource( 8 )
 
 [node name="WobbleWeb" parent="Map/Props" instance=ExtResource( 10 )]
-position = Vector2( 166.775, -116.312 )
+position = Vector2( 166, -116 )
 
 [node name="WobbleWeb2" parent="Map/Props" instance=ExtResource( 10 )]
-position = Vector2( -186.474, -1110.86 )
+position = Vector2( -186, -1110 )
 
 [node name="WobbleWeb3" parent="Map/Props" instance=ExtResource( 10 )]
-position = Vector2( 189.131, -1481.95 )
+position = Vector2( 189, -1481 )
 
 [node name="WobbleWeb4" parent="Map/Props" instance=ExtResource( 10 )]
-position = Vector2( -147.178, -2448.84 )
+position = Vector2( -147, -2448 )
 
 [node name="WobbleWeb5" parent="Map/Props" instance=ExtResource( 10 )]
-position = Vector2( 94.4839, -4624.46 )
+position = Vector2( 94, -4624 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( -130, -69 )
