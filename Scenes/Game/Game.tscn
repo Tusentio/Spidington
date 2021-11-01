@@ -349,11 +349,12 @@ position = Vector2( -144, -3688 )
 rotation = -1.57079
 
 [node name="Props" type="Node2D" parent="Map"]
-position = Vector2( 0, 1024 )
+position = Vector2( -52, 1024 )
 z_index = -1
 
 [node name="Tree" type="Sprite" parent="Map/Props"]
-position = Vector2( 116, -1785 )
+position = Vector2( 60, -1711.86 )
+scale = Vector2( 0.749766, 0.749766 )
 texture = ExtResource( 9 )
 
 [node name="House" type="Sprite" parent="Map/Props"]
@@ -361,7 +362,8 @@ position = Vector2( -104, -126 )
 texture = ExtResource( 8 )
 
 [node name="House2" type="Sprite" parent="Map/Props"]
-position = Vector2( 106, -2009 )
+position = Vector2( 52, -1878.31 )
+scale = Vector2( 0.742188, 0.742188 )
 texture = ExtResource( 8 )
 
 [node name="Scarecrow" type="Sprite" parent="Map/Props"]
