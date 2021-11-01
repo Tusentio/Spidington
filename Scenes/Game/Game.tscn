@@ -372,6 +372,9 @@ rotation = -1.57079
 position = Vector2( -144, -3688 )
 rotation = -1.57079
 
+[node name="Hook111" parent="Map/Hooks" instance=ExtResource( 4 )]
+position = Vector2( -64, -259.707 )
+
 [node name="Props" type="Node2D" parent="Map"]
 position = Vector2( 0, 1024 )
 z_index = -1
