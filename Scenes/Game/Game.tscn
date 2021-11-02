@@ -349,7 +349,7 @@ position = Vector2( -144, -3688 )
 rotation = -1.57079
 
 [node name="Props" type="Node2D" parent="Map"]
-position = Vector2( -52, 1024 )
+position = Vector2( 0, 1024 )
 z_index = -1
 
 [node name="Tree" type="Sprite" parent="Map/Props"]
@@ -396,6 +396,7 @@ motion_scale = Vector2( 0.1, 0.1 )
 motion_mirroring = Vector2( 0, 1024 )
 
 [node name="Background" type="Sprite" parent="Background/NestLayer"]
+position = Vector2( 0, -20 )
 texture = ExtResource( 11 )
 
 [node name="FarLayer" type="ParallaxLayer" parent="Background"]
