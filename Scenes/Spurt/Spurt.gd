@@ -6,6 +6,7 @@ const DRAG := 0.004
 const SHORTENING_COEFFICIENT := 0.2
 const MIN_STRING_LENGTH := 1.0
 const MAX_STRING_LENGTH := 150.0
+const OBSTACLE_LEEWAY := 3.0
 
 var anchor: Node2D = null
 var velocity := Vector2.ZERO
@@ -24,7 +25,9 @@ func _process(delta):
 			return
 		
 		var space_state := get_world_2d().direct_space_state
-		var obstruction := space_state.intersect_ray(global_position, anchor.global_position, [], 0b10)
+		var obstruction := space_state.intersect_ray(
+			anchor.global_position - OBSTACLE_LEEWAY * normal(),
+			global_position, [], 0b10)
 		if obstruction:
 			$SnapSound.play()
 			line.points[1] = to_local(obstruction.position)
@@ -78,6 +81,10 @@ func set_anchor(anchor: Node2D):
 
 func length() -> float:
 	return line.points[1].length()
+
+
+func normal() -> Vector2:
+	return line.points[1].normalized()
 
 
 func detach():
