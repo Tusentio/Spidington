@@ -36,8 +36,8 @@ margin_right = 481.75
 margin_bottom = 65.0
 rect_scale = Vector2( 0.25, 0.25 )
 custom_fonts/font = ExtResource( 2 )
-text = "Hold left mouse button to spurt on hook,
-Move mouse to swing."
+text = "Hold the left mouse button to spurt strings onto hooks.
+Drag the mouse to fling yourself toward them."
 __meta__ = {
 "_edit_use_anchors_": false
 }
