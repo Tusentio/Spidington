@@ -392,7 +392,7 @@ position = Vector2( 94, -4624 )
 [node name="Background" type="ParallaxBackground" parent="."]
 
 [node name="NestLayer" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0.1, 0.1 )
+motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 0, 1024 )
 
 [node name="Background" type="Sprite" parent="Background/NestLayer"]
