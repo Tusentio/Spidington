@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scenes/Game/Background.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/Game/Props/scarecrow_background.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Game/Props/dove1.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Game/Props/few_made_it_this_far.png" type="Texture" id=14]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/house_background.png-19c042a70f8752b1a1a555ec521d78e4.stex"
@@ -400,6 +401,10 @@ texture = ExtResource( 13 )
 [node name="Dove2" type="Sprite" parent="Map/Props"]
 position = Vector2( 104, -5703 )
 texture = ExtResource( 13 )
+
+[node name="Cheering Sign" type="Sprite" parent="Map/Props"]
+position = Vector2( -36, -4111 )
+texture = ExtResource( 14 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
