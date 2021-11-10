@@ -22,8 +22,8 @@ var mouse_update_delta := 0.0
 var mouse_velocity := Vector2.ZERO
 var saved_mouse_position := Vector2.ZERO
 
-const DEBUG_SPEED := 64.0
-const DEBUG_ACCELERATION := 16.0
+const DEBUG_SPEED := 96.0
+const DEBUG_ACCELERATION := 64.0
 
 var debug_mode := false
 var debug_speed := DEBUG_SPEED
@@ -55,7 +55,7 @@ func _process(delta):
 			(Vector2.DOWN if Input.is_action_pressed("debug_down") else Vector2.ZERO))
 		
 		if debug_move:
-			translate(debug_move.normalized() * debug_speed * delta)
+			translate(debug_move * debug_speed * delta)
 			debug_speed += DEBUG_ACCELERATION * delta
 		else:
 			debug_speed = DEBUG_SPEED
