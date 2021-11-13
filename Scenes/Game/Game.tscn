@@ -346,11 +346,9 @@ rotation = -1.57079
 
 [node name="NestLayer" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2( 0.5, 0.5 )
-motion_mirroring = Vector2( 0, 1024 )
+motion_mirroring = Vector2( 0, 800 )
 
 [node name="Background" type="Sprite" parent="Background/NestLayer"]
-position = Vector2( -168, -1489.15 )
-scale = Vector2( 0.352252, 0.352252 )
 texture = ExtResource( 11 )
 
 [node name="FarLayer" type="ParallaxLayer" parent="Background"]
