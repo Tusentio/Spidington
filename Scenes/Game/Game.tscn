@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Scenes/Game/Props/dove1.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Game/Props/few_made_it_this_far.png" type="Texture" id=14]
 [ext_resource path="res://Shaders/Color.tres" type="Material" id=15]
+[ext_resource path="res://Scenes/Collectible/Collectible.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/house_background.png-19c042a70f8752b1a1a555ec521d78e4.stex"
@@ -342,6 +343,11 @@ position = Vector2( 16, -5131 )
 [node name="Hook48" parent="Map/Hooks" instance=ExtResource( 4 )]
 position = Vector2( -144, -3688 )
 rotation = -1.57079
+
+[node name="Collectibles" type="Node2D" parent="Map"]
+
+[node name="Collectible" parent="Map/Collectibles" instance=ExtResource( 16 )]
+position = Vector2( -184, -90 )
 
 [node name="Background" type="ParallaxBackground" parent="."]
 
