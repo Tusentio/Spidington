@@ -2,7 +2,7 @@ tool
 extends Node2D
 
 export (float) var radius := 150.0
-export (float) var margin := 2.0
+export (float) var margin := 3.0
 
 var in_range := false
 
@@ -22,4 +22,5 @@ func _draw():
 		var obstruction := space_state.intersect_ray(global_position + normal * margin,
 			get_global_mouse_position() - normal * margin, [], 0b10)
 		if not obstruction:
-			draw_line(Vector2.ZERO, local_mouse, Color.white, 1.0)
+			draw_line(Vector2.ZERO + normal * margin,
+				local_mouse - normal * margin, Color.white, 1.0)
