@@ -319,9 +319,6 @@ position = Vector2( 106, -4648.06 )
 [node name="Hook94" parent="Map/Hooks" instance=ExtResource( 4 )]
 position = Vector2( -124, -4635 )
 
-[node name="Hook95" parent="Map/Hooks" instance=ExtResource( 4 )]
-position = Vector2( -170, -4748.06 )
-
 [node name="Hook96" parent="Map/Hooks" instance=ExtResource( 4 )]
 position = Vector2( -104, -4859 )
 
