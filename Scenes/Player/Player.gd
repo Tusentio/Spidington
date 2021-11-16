@@ -105,9 +105,13 @@ func _input(event):
 			spurt.detach()
 		spurt = null
 	
-	if Input.is_action_just_pressed("toggle_debug_mode") and OS.is_debug_build():
-		debug_mode = !debug_mode
-		mode = MODE_STATIC if debug_mode else MODE_RIGID
+	if OS.is_debug_build():
+		if Input.is_action_just_pressed("toggle_debug_mode"):
+			debug_mode = !debug_mode
+			mode = MODE_STATIC if debug_mode else MODE_RIGID
+		
+		if Input.is_action_just_pressed("debug_reload"):
+			get_tree().reload_current_scene()
 
 
 func get_seconds() -> int:
