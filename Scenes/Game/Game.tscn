@@ -27,7 +27,7 @@ load_path = "res://.import/house_background.png-19c042a70f8752b1a1a555ec521d78e4
 script = ExtResource( 2 )
 
 [node name="Map" type="TileMap" parent="."]
-position = Vector2( 6, -1023.94 )
+position = Vector2( 0, -1024 )
 rotation = 4.53378e-05
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
