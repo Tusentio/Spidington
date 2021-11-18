@@ -14,7 +14,7 @@ height = 4.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "default",
 "speed": 3.0
@@ -33,7 +33,6 @@ shape = SubResource( 1 )
 position = Vector2( 0.0260149, -1.23379 )
 scale = Vector2( 0.295427, 0.352741 )
 frames = SubResource( 2 )
-frame = 5
 playing = true
 
 [node name="ShootOrigin" type="Position2D" parent="."]
