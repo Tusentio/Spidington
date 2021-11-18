@@ -30,13 +30,14 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0.0260149, -1.23379 )
-scale = Vector2( 0.295427, 0.352741 )
+position = Vector2( 1.11022e-16, -1 )
+scale = Vector2( 0.4, 0.4 )
 frames = SubResource( 2 )
+frame = 2
 playing = true
 
 [node name="ShootOrigin" type="Position2D" parent="."]
-position = Vector2( 0.00953293, -4.5805 )
+position = Vector2( 0, -4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
