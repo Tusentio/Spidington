@@ -434,10 +434,10 @@ z_index = 1
 
 [node name="Shader" type="ColorRect" parent="Shaders"]
 material = ExtResource( 15 )
-margin_left = 38.0
-margin_top = -4640.0
-margin_right = 150.0
-margin_bottom = -3824.0
+margin_left = 32.1635
+margin_top = -4639.86
+margin_right = 144.163
+margin_bottom = -3823.86
 __meta__ = {
 "_edit_use_anchors_": false
 }
