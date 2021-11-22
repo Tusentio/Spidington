@@ -15,6 +15,9 @@ func _ready():
 	if player_data.saved:
 		$TimerLabel.text = (String(player_data.time_major) + "." +
 			String(int(player_data.time_minor * 1000)).pad_zeros(3))
+		var data = JSON.print(player_data)
+		$HTTPRequest.request("www.google.se", ["Content-Type: application/json"], true,
+			HTTPClient.METHOD_POST, data)
 			
 	# Reset save
 	PlayerData.new().save()
