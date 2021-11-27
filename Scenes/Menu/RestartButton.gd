@@ -1,8 +1,9 @@
 extends Button
 
 func _on_RestartButton_pressed():
-	PlayerData.new().save()
-	SceneChanger.change_scene(SceneChanger.GAME);
+	# Reset save
+	PlayerData.reset()
+	get_tree().reload_current_scene()
 	
 func _ready():
 	if not PlayerData.read().saved:
