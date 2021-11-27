@@ -9,6 +9,7 @@ const MAX_STRING_LENGTH := 150.0
 const OBSTACLE_LEEWAY := 3.0
 
 var anchor: Node2D = null
+var hook: Hook = null
 var velocity := Vector2.ZERO
 var tail_velocity := Vector2.ZERO
 onready var line := $Line2D
@@ -64,7 +65,8 @@ func _physics_process(delta):
 			if is_anchored():
 				var collider = collision.collider
 				if collider is Hook:
-					collider.anchored()
+					hook = collider
+					hook.anchored()
 				else:
 					detach()
 			
@@ -90,6 +92,9 @@ func normal() -> Vector2:
 func detach():
 	if is_anchored():
 		anchor = null
+	if hook:
+		hook.unanchored()
+		hook = null
 
 
 func is_hooked():
