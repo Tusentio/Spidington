@@ -73,7 +73,7 @@ func _exit_tree():
 	save_state()
 
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	if is_instance_valid(spurt) and spurt.is_anchored() and spurt.is_hooked():
 		var string_normal := (spurt.global_position - global_position).normalized()
 		var directional_force := -mouse_velocity.dot(string_normal) * move_sensitivity
@@ -140,6 +140,9 @@ func show_mouse():
 func load_state():
 	var player_data: PlayerData = PlayerData.read()
 	uid = player_data.uid
+	
+	if OS.is_debug_build():
+		print("Player ID: " + uid)
 	
 	if player_data.saved:
 		global_position = player_data.global_position
