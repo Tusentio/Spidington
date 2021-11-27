@@ -31,7 +31,6 @@ shape = SubResource( 1 )
 position = Vector2( 0, 1.29305 )
 scale = Vector2( 1.00352, 0.985664 )
 frames = SubResource( 2 )
-frame = 1
 playing = true
 
 [node name="ShootOrigin" type="Position2D" parent="."]
