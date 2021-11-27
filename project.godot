@@ -46,11 +46,12 @@ BackgroundMusic="*res://Autoload/BackgroundMusic.tscn"
 
 [display]
 
-window/size/height=400
+window/size/height=576
 window/size/fullscreen=true
+window/handheld/orientation="portrait"
 mouse_cursor/custom_image="res://Cursor.png"
 window/stretch/mode="2d"
-window/stretch/aspect="keep_width"
+window/stretch/aspect="keep"
 
 [global]
 
