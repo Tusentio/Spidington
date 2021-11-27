@@ -35,6 +35,7 @@ static func reset(path = save_path):
 
 
 static func generate_uid() -> String:
+	randomize()
 	var nonce := ""
 	for i in 10:
 		nonce += String(randi())
