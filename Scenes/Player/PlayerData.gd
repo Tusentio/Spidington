@@ -3,8 +3,6 @@ class_name PlayerData
 
 const save_path := "user://save.res"
 
-export (String) var uid := generate_uid()
-
 export (bool) var saved := false
 export (Vector2) var global_position: Vector2
 export (float) var rotation: float
@@ -27,16 +25,4 @@ static func read(path = save_path):
 
 
 static func reset(path = save_path):
-	var old_data = read(path)
-	if old_data.saved:
-		var new_data = load("res://Scenes/Player/PlayerData.gd").new()
-		new_data.uid = old_data.uid
-		new_data.save()
-
-
-static func generate_uid() -> String:
-	randomize()
-	var nonce := ""
-	for i in 10:
-		nonce += String(randi())
-	return nonce.sha256_text()
+	load("res://Scenes/Player/PlayerData.gd").new().save(path)

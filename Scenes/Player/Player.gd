@@ -11,7 +11,7 @@ export (float) var pitch_lerp_factor := 0.05
 onready var background_music: AudioStreamPlayer = get_tree().get_nodes_in_group("music")[0]
 onready var _pitch_scale := background_music.pitch_scale
 
-var uid: String
+var uid := OS.get_unique_id().sha256_text()
 
 onready var timer_label := $CanvasLayer/TimerLabel
 var time_major: int = 0
@@ -32,6 +32,8 @@ var debug_speed := DEBUG_SPEED
 
 
 func _ready():
+	if OS.is_debug_build():
+		print("Player ID: " + uid)
 	load_state()
 
 
@@ -139,10 +141,6 @@ func show_mouse():
 
 func load_state():
 	var player_data: PlayerData = PlayerData.read()
-	uid = player_data.uid
-	
-	if OS.is_debug_build():
-		print("Player ID: " + uid)
 	
 	if player_data.saved:
 		global_position = player_data.global_position
@@ -156,7 +154,6 @@ func load_state():
 
 func save_state():
 	var player_data := PlayerData.new()
-	player_data.uid = uid
 	
 	player_data.saved = true
 	player_data.global_position = global_position
