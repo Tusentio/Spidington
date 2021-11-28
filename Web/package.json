@@ -1,0 +1,14 @@
+{
+  "name": "spidington-web",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ."
+  },
+  "author": "Keve1227 <killenlillen02@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}

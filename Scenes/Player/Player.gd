@@ -8,10 +8,7 @@ export (float) var max_move_force := 15
 export (float) var pitch_affect := 0.0005
 export (float) var pitch_lerp_factor := 0.05
 
-onready var background_music: AudioStreamPlayer = get_tree().get_nodes_in_group("music")[0]
-onready var _pitch_scale := background_music.pitch_scale
-
-var uid := OS.get_unique_id().sha256_text()
+onready var _pitch_scale := BackgroundMusic.pitch_scale
 
 onready var timer_label := $CanvasLayer/TimerLabel
 var time_major: int = 0
@@ -33,7 +30,9 @@ var debug_speed := DEBUG_SPEED
 
 func _ready():
 	if OS.is_debug_build():
-		print("Player ID: " + uid)
+		print("Player ID: " + AnalyticsCollector.get_uid())
+	
+	AnalyticsCollector.send_event("begin_play")
 	load_state()
 
 
@@ -64,12 +63,15 @@ func _process(delta):
 		else:
 			debug_speed = DEBUG_SPEED
 	
-	background_music.pitch_scale = lerp(background_music.pitch_scale, _pitch_scale +
+	BackgroundMusic.pitch_scale = lerp(BackgroundMusic.pitch_scale, _pitch_scale +
 		linear_velocity.length() * pitch_affect, 1 - pow(pitch_lerp_factor, delta))
 
 
 func _exit_tree():
-	background_music.pitch_scale = _pitch_scale
+	AnalyticsCollector.send_event("stop_play", { pos = global_position })
+	AnalyticsCollector.flush_await()
+	
+	BackgroundMusic.pitch_scale = _pitch_scale
 	
 	show_mouse()
 	save_state()
@@ -96,6 +98,8 @@ func _input(event):
 		
 		$SpurtSound.play()
 		
+		AnalyticsCollector.send_event("shoot_string", { pos = global_position })
+		
 		var mouse := get_global_mouse_position()
 		var shoot_direction: Vector2 = (mouse - shoot_origin.global_position).normalized()
 		
@@ -107,6 +111,7 @@ func _input(event):
 	elif Input.is_action_just_released("shoot_string"):
 		if is_instance_valid(spurt) and spurt.is_anchored():
 			spurt.detach()
+			AnalyticsCollector.send_event("release_string", { pos = global_position })
 		spurt = null
 	
 	if OS.is_debug_build():
@@ -130,6 +135,7 @@ func hide_mouse():
 	if not saved_mouse_position:
 		saved_mouse_position = get_viewport().get_mouse_position()
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		AnalyticsCollector.send_event("mouse_hidden", { pos = global_position })
 
 
 func show_mouse():
@@ -137,6 +143,7 @@ func show_mouse():
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_viewport().warp_mouse(saved_mouse_position)
 		saved_mouse_position = Vector2.ZERO
+		AnalyticsCollector.send_event("mouse_shown", { pos = global_position })
 
 
 func load_state():
@@ -150,6 +157,8 @@ func load_state():
 		
 		time_major = player_data.time_major
 		time_minor = player_data.time_minor
+	else:
+		AnalyticsCollector.send_event("new_save")
 
 
 func save_state():

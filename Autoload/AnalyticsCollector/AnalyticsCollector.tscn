@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Autoload/AnalyticsCollector/AnalyticsCollector.gd" type="Script" id=1]
+
+[node name="AnalyticsCollector" type="Node"]
+script = ExtResource( 1 )
+analytics_url = "http://127.0.0.1/"
+use_ssl = false
+
+[node name="FlushTimer" type="Timer" parent="."]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="timeout" from="FlushTimer" to="." method="_on_FlushTimer_timeout"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

@@ -1,0 +1,4 @@
+{
+    "analyticsLoggingInterval": 1000,
+    "analyticsLocation": "./analytics.json"
+}
