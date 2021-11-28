@@ -1,4 +1,5 @@
 {
     "analyticsLoggingInterval": 1000,
-    "analyticsLocation": "./analytics.json"
+    "analyticsLocation": "./analytics.json",
+    "versionSupport": "~1.0.0-testver"
 }
