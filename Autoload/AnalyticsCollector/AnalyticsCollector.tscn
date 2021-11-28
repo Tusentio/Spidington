@@ -5,6 +5,7 @@
 [node name="AnalyticsCollector" type="Node"]
 script = ExtResource( 1 )
 analytics_url = "http://127.0.0.1/"
+custom_headers = PoolStringArray( "spidington: test-build" )
 use_ssl = false
 exit_on_fail = true
 
