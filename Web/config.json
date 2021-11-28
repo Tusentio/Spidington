@@ -1,5 +1,9 @@
 {
-    "analyticsLoggingInterval": 1000,
-    "analyticsLocation": "./analytics.json",
-    "versionSupport": "~1.0.0-testver"
+    "versionSupport": "~1.0.0-testver",
+    "analytics": {
+        "saveInterval": 1000,
+        "partitionLength": 64,
+        "directory": "./.logs/analytics",
+        "nameFormat": "{UTC:yyyymmddHHMMss}.json"
+    }
 }

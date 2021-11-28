@@ -1,12 +1,9 @@
 require("dotenv").config();
 
-const fs = require("fs");
-const path = require("path");
 const semver = require("semver");
 const express = require("express");
+const analytics = require("./routes/analytics");
 const config = require("./config.json");
-
-const analyticsLog = [];
 
 const app = express();
 
@@ -25,24 +22,8 @@ app.use((req, res, next) => {
     return next();
 });
 
-app.use(express.json());
-
 // Analytics
-app.post("/", (req, res) => {
-    let dur, evq, iat, sid;
-
-    try {
-        ({ dur, evq, iat, sid } = req.body);
-    } catch {
-        return res.sendStatus(400);
-    }
-
-    const entry = { dur, evq, iat, sid };
-    analyticsLog.push(entry);
-    console.log(entry);
-
-    return res.sendStatus(200);
-});
+app.use(analytics.router);
 
 // Error handling
 app.use((_err, _req, res, _next) => res.sendStatus(400));
@@ -51,6 +32,4 @@ app.listen(process.env.PORT, () => {
     console.log(`Server listening on port ${process.env.PORT}.`);
 });
 
-setInterval(() => {
-    fs.promises.writeFile(path.resolve(config.analyticsLocation), JSON.stringify(analyticsLog));
-}, config.analyticsLoggingInterval);
+setInterval(analytics.save, config.analytics.saveInterval);
