@@ -6,6 +6,8 @@ const config = require("./config.json");
 
 const app = express();
 
+app.use(express.static("public"));
+
 app.get("/", (_req, res) => {
     return res.sendStatus(200);
 });
