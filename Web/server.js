@@ -40,8 +40,8 @@ if (config.secure) {
 
 app.use(express.static("public"));
 
-app.get("/", (_req, res) => {
-    return res.sendStatus(200);
+app.get("/", (req, res) => {
+    return res.json(req.headers);
 });
 
 // Version checking
