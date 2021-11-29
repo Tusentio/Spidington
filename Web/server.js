@@ -60,7 +60,7 @@ app.use((req, res, next) => {
 });
 
 // Analytics
-app.use(analytics.router);
+app.use("/analytics", analytics.router);
 
 // Error handling
 app.use((_err, _req, res, _next) => res.sendStatus(400));

@@ -36,7 +36,8 @@ func flush():
 		sid = get_uid(),
 		iat = current_time,
 		dur = queue_duration,
-		evq = event_queue
+		evq = event_queue,
+		debug = OS.is_debug_build(),
 	})
 	
 	var headers: PoolStringArray = []

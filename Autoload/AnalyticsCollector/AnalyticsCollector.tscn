@@ -4,9 +4,8 @@
 
 [node name="AnalyticsCollector" type="Node"]
 script = ExtResource( 1 )
-analytics_url = "http://127.0.0.1/"
+analytics_url = "https://spidington.codedesign.cloud/analytics"
 custom_headers = PoolStringArray( "spidington: 1.0.0-testver.1" )
-use_ssl = false
 exit_on_fail = true
 
 [node name="FlushTimer" type="Timer" parent="."]
