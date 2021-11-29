@@ -8,8 +8,15 @@ const app = express();
 
 if (config.secure) {
     app.use((req, res, next) => {
-        if (req.protocol === "https") return next();
-        return res.redirect(req.url.replace("^https?", "https"));
+        if (req.protocol === "https") {
+            return next();
+        }
+
+        if (!req.headers.host) {
+            return res.sendStatus(400);
+        }
+
+        return res.redirect("https://" + req.headers.host + req.url);
     });
 
     (async () => {
