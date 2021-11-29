@@ -7,6 +7,7 @@ const config = require("./config.json");
 const app = express();
 
 if (config.secure) {
+    // Redirect HTTP to HTTPS
     app.use((req, res, next) => {
         if (req.protocol === "https") {
             return next();
