@@ -6,15 +6,20 @@ const config = require("./config.json");
 
 const app = express();
 
+// Require Host-header
+app.use((req, res, next) => {
+    if (req.headers.host) {
+        return next();
+    } else {
+        return res.sendStatus(400);
+    }
+});
+
 if (config.secure) {
     // Redirect HTTP to HTTPS
     app.use((req, res, next) => {
         if (req.protocol === "https") {
             return next();
-        }
-
-        if (!req.headers.host) {
-            return res.sendStatus(400);
         }
 
         return res.redirect("https://" + req.headers.host + req.url);
@@ -44,6 +49,9 @@ app.get("/", (req, res) => {
     return res.json(req.headers);
 });
 
+// Admin
+app.use("/admin", require("./routes/admin"));
+
 // Version checking
 app.use((req, res, next) => {
     const version = semver.valid(req.headers["spidington"]);
@@ -63,7 +71,10 @@ app.use((req, res, next) => {
 app.use("/analytics", analytics.router);
 
 // Error handling
-app.use((_err, _req, res, _next) => res.sendStatus(400));
+app.use((err, _req, res, _next) => {
+    console.error(err);
+    return res.sendStatus(500);
+});
 
 app.listen(config.port, () => {
     console.log(`Server listening on port ${config.port}.`);

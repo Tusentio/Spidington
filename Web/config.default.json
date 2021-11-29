@@ -6,6 +6,13 @@
         "cert": "/etc/ssl/certs/spidington.codedesign.cloud.pem"
     },
     "versionSupport": "~1.0.0-testver",
+    "credentials": {
+        "realm": "spidington",
+        "admin": {
+            "username": "admin",
+            "password": "admin"
+        }
+    },
     "analytics": {
         "echo": false,
         "saveInterval": 1000,

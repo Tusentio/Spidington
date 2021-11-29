@@ -4,7 +4,7 @@ const sanitize = require("sanitize-filename");
 const express = require("express");
 const config = require("../config.json");
 
-const router = new express.Router();
+const router = express.Router();
 
 let name = makeName();
 const log = [];
