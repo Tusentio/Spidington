@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const fs = require("fs");
 const semver = require("semver");
 const express = require("express");
@@ -45,8 +43,8 @@ app.use((_err, _req, res, _next) => res.sendStatus(400));
 
     const server = config.secure ? require("https").createServer(options, app) : app;
 
-    server.listen(process.env.PORT, () => {
-        console.log(`Server listening on port ${process.env.PORT}.`);
+    server.listen(config.port, () => {
+        console.log(`Server listening on port ${config.port}.`);
     });
 })();
 
