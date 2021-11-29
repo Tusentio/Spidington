@@ -2,8 +2,8 @@
     "port": 80,
     "secure": false,
     "ssl": {
-        "key": "/etc/spidington/key.pem",
-        "cert": "/etc/spidington/cert.pem"
+        "key": "/etc/ssl/private/spidington.codedesign.cloud.pem",
+        "cert": "/etc/ssl/certs/spidington.codedesign.cloud.pem"
     },
     "versionSupport": "~1.0.0-testver",
     "analytics": {
