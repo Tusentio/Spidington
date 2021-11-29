@@ -7,6 +7,7 @@
     },
     "versionSupport": "~1.0.0-testver",
     "analytics": {
+        "echo": false,
         "saveInterval": 1000,
         "partitionLength": 64,
         "directory": "./.logs/analytics",

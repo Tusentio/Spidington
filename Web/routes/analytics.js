@@ -22,7 +22,10 @@ router.post("/", (req, res) => {
 
     const entry = { dur, evq, iat, sid };
     log.push(entry);
-    console.log(entry);
+
+    if (config.analytics.echo) {
+        console.log(entry);
+    }
 
     return res.sendStatus(200);
 });
