@@ -6,6 +6,30 @@ const config = require("./config.json");
 
 const app = express();
 
+if (config.secure) {
+    app.use((req, res, next) => {
+        if (req.protocol === "https") return next();
+        return res.redirect(req.url.replace("^https?", "https"));
+    });
+
+    (async () => {
+        const options = {};
+
+        if (config.ssl) {
+            Object.assign(options, {
+                key: await fs.promises.readFile(config.ssl.key),
+                cert: await fs.promises.readFile(config.ssl.cert),
+            });
+        }
+
+        require("https")
+            .createServer(options, app)
+            .listen(443, () => {
+                console.log("Server listening on port 443.");
+            });
+    })();
+}
+
 app.use(express.static("public"));
 
 app.get("/", (_req, res) => {
@@ -33,21 +57,8 @@ app.use(analytics.router);
 // Error handling
 app.use((_err, _req, res, _next) => res.sendStatus(400));
 
-(async () => {
-    const options = {};
-
-    if (config.secure && config.ssl) {
-        Object.assign(options, {
-            key: await fs.promises.readFile(config.ssl.key),
-            cert: await fs.promises.readFile(config.ssl.cert),
-        });
-    }
-
-    const server = config.secure ? require("https").createServer(options, app) : app;
-
-    server.listen(config.port, () => {
-        console.log(`Server listening on port ${config.port}.`);
-    });
-})();
+app.listen(config.port, () => {
+    console.log(`Server listening on port ${config.port}.`);
+});
 
 setInterval(analytics.save, config.analytics.saveInterval);
