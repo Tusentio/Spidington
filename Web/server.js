@@ -1,11 +1,16 @@
 require("dotenv").config();
 
+const fs = require("fs");
 const semver = require("semver");
 const express = require("express");
 const analytics = require("./routes/analytics");
 const config = require("./config.json");
 
 const app = express();
+
+app.get("/", (_req, res) => {
+    return res.sendStatus(200);
+});
 
 // Version checking
 app.use((req, res, next) => {
@@ -28,8 +33,21 @@ app.use(analytics.router);
 // Error handling
 app.use((_err, _req, res, _next) => res.sendStatus(400));
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server listening on port ${process.env.PORT}.`);
-});
+(async () => {
+    const options = {};
+
+    if (config.secure && config.ssl) {
+        Object.assign(options, {
+            key: await fs.promises.readFile(config.ssl.key),
+            cert: await fs.promises.readFile(config.ssl.cert),
+        });
+    }
+
+    const server = config.secure ? require("https").createServer(options, app) : app;
+
+    server.listen(process.env.PORT, () => {
+        console.log(`Server listening on port ${process.env.PORT}.`);
+    });
+})();
 
 setInterval(analytics.save, config.analytics.saveInterval);
