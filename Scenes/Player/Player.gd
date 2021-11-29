@@ -98,20 +98,30 @@ func _input(event):
 		
 		$SpurtSound.play()
 		
-		AnalyticsCollector.send_event("shoot_string", { pos = global_position })
-		
 		var mouse := get_global_mouse_position()
-		var shoot_direction: Vector2 = (mouse - shoot_origin.global_position).normalized()
+		var mouse_diff: Vector2 = mouse - shoot_origin.global_position
+		var shoot_direction: Vector2 = mouse_diff.normalized()
 		
 		spurt = scn_spurt.instance()
 		spurt.global_position = shoot_origin.global_position
 		spurt.set_velocity(shoot_direction * spurt_velocity)
 		spurt.set_anchor(shoot_origin)
 		get_tree().get_root().add_child(spurt)
+		
+		AnalyticsCollector.send_event("shoot_string", {
+			pos = global_position,
+			mdist = mouse_diff.length(),
+		})
 	elif Input.is_action_just_released("shoot_string"):
 		if is_instance_valid(spurt) and spurt.is_anchored():
 			spurt.detach()
-			AnalyticsCollector.send_event("release_string", { pos = global_position })
+			
+			var mouse := get_global_mouse_position()
+			var mouse_diff: Vector2 = mouse - shoot_origin.global_position
+			AnalyticsCollector.send_event("release_string", {
+				pos = global_position,
+				mdist = mouse_diff.length(),
+			})
 		spurt = null
 	
 	if OS.is_debug_build():
