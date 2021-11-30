@@ -403,7 +403,7 @@ scale = Vector2( 1.25, 1.25 )
 texture = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( -171.503, -69 )
+position = Vector2( 0, -69 )
 
 [node name="Camera" type="Camera2D" parent="Player"]
 current = true

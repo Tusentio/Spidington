@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const MENU = "res://Scenes/Menu/Menu.tscn";
+const INTRO = "res://Scenes/Intro/Intro.tscn";
 const GAME = "res://Scenes/Game/Game.tscn";
 const CREDITS = "res://Scenes/Credits/Credits.tscn";
 
