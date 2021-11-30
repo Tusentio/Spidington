@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Background.png-9214378ba6995a1cf8660606907c3d8a.stex"
+path="res://.import/Background5.png-8866c4eff403abee2eab6f32c6adfac2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Game/Background.png"
-dest_files=[ "res://.import/Background.png-9214378ba6995a1cf8660606907c3d8a.stex" ]
+source_file="res://Scenes/Game/Background5.png"
+dest_files=[ "res://.import/Background5.png-8866c4eff403abee2eab6f32c6adfac2.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=0
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
