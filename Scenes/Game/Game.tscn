@@ -348,8 +348,7 @@ rotation = -1.57079
 [node name="Background" type="ParallaxBackground" parent="."]
 
 [node name="NestLayer1" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0, 0.1 )
-motion_mirroring = Vector2( 0, 1800 )
+motion_scale = Vector2( 0, 0.3 )
 
 [node name="Background1" type="Sprite" parent="Background/NestLayer1"]
 texture = ExtResource( 17 )
@@ -357,8 +356,7 @@ centered = false
 offset = Vector2( -205, -1800 )
 
 [node name="NestLayer2" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0, 0.2 )
-motion_mirroring = Vector2( 0, 1800 )
+motion_scale = Vector2( 0, 0.4 )
 
 [node name="Background2" type="Sprite" parent="Background/NestLayer2"]
 texture = ExtResource( 18 )
@@ -366,8 +364,7 @@ centered = false
 offset = Vector2( -205, -1800 )
 
 [node name="NestLayer3" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0, 0.3 )
-motion_mirroring = Vector2( 0, 1800 )
+motion_scale = Vector2( 0, 0.55 )
 
 [node name="Background3" type="Sprite" parent="Background/NestLayer3"]
 texture = ExtResource( 19 )
@@ -375,8 +372,7 @@ centered = false
 offset = Vector2( -205, -1800 )
 
 [node name="NestLayer4" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0, 0.4 )
-motion_mirroring = Vector2( 0, 1800 )
+motion_scale = Vector2( 0, 0.7 )
 
 [node name="Background4" type="Sprite" parent="Background/NestLayer4"]
 texture = ExtResource( 16 )
@@ -384,8 +380,7 @@ centered = false
 offset = Vector2( -205, -1800 )
 
 [node name="NestLayer5" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2( 0, 0.5 )
-motion_mirroring = Vector2( 0, 1800 )
+motion_scale = Vector2( 0, 0.9 )
 
 [node name="Background5" type="Sprite" parent="Background/NestLayer5"]
 texture = ExtResource( 20 )
@@ -393,6 +388,7 @@ centered = false
 offset = Vector2( -205, -1800 )
 
 [node name="FarLayer" type="ParallaxLayer" parent="Background"]
+visible = false
 modulate = Color( 1, 1, 1, 0.313726 )
 motion_scale = Vector2( 0.6, 0.6 )
 motion_mirroring = Vector2( 500, 300 )
@@ -407,6 +403,7 @@ position = Vector2( 183.94, 117.247 )
 texture = ExtResource( 5 )
 
 [node name="CloseLayer" type="ParallaxLayer" parent="Background"]
+visible = false
 modulate = Color( 1, 1, 1, 0.588235 )
 motion_scale = Vector2( 0.8, 0.8 )
 motion_mirroring = Vector2( 500, 300 )
