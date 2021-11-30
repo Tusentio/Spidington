@@ -44,9 +44,10 @@ func flush():
 	headers.append_array(custom_headers)
 	headers.append("content-type: application/json")
 	
-	yield($HTTPRequest, "request_completed")
-	$HTTPRequest.request(analytics_url, headers, use_ssl, HTTPClient.METHOD_POST, data)
+	if $HTTPRequest.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		yield($HTTPRequest, "request_completed")
 	
+	$HTTPRequest.request(analytics_url, headers, use_ssl, HTTPClient.METHOD_POST, data)
 	event_queue.clear()
 
 
