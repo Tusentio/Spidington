@@ -34,10 +34,10 @@ func flush():
 	
 	var data := to_json({
 		sid = get_uid(),
+		rel = 0 if OS.is_debug_build() else 1,
 		iat = current_time,
 		dur = queue_duration,
 		evq = event_queue,
-		debug = OS.is_debug_build(),
 	})
 	
 	var headers: PoolStringArray = []

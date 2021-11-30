@@ -12,15 +12,11 @@ const log = [];
 router.use(express.json());
 
 router.post("/", (req, res) => {
-    let dur, evq, iat, sid;
-
-    try {
-        ({ dur, evq, iat, sid } = req.body);
-    } catch {
+    if (!req.body.evq || !req.body.sid) {
         return res.sendStatus(400);
     }
 
-    const entry = { dur, evq, iat, sid };
+    const entry = req.body;
     log.push(entry);
 
     if (config.analytics.echo) {
