@@ -16,12 +16,18 @@ func _ready():
 		$FlushTimer.start()
 
 
-func send_event(name: String, data = 0):
-	event_queue.append({
-		n = name,
-		m = data,
-		t = OS.get_system_time_msecs(),
-	})
+func send_event(name: String, data = null):
+	if data == null:
+		event_queue.append({
+			n = name,
+			t = OS.get_system_time_msecs(),
+		})
+	else:
+		event_queue.append({
+			n = name,
+			m = data,
+			t = OS.get_system_time_msecs(),
+		})
 
 
 func flush():
