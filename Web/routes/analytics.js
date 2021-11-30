@@ -6,7 +6,6 @@ const config = require("../config.json");
 
 const router = express.Router();
 
-let name = makeName();
 const log = [];
 
 router.use(express.json());
@@ -26,14 +25,6 @@ router.post("/", (req, res) => {
     return res.sendStatus(200);
 });
 
-async function makeName() {
-    const dateformat = await import("dateformat");
-    const format = config.analytics.nameFormat;
-    return format.replace(/\\(.)|\{([^}]*)\}/g, (_match, escape, dateTemplate) => {
-        return escape ?? dateformat.default(Date.now(), dateTemplate);
-    });
-}
-
 module.exports = {
     router,
     async save() {
@@ -42,12 +33,12 @@ module.exports = {
             await fs.promises.mkdir(directory, { recursive: true });
         }
 
-        const file = path.resolve(directory, sanitize(await name));
-        await fs.promises.writeFile(file, JSON.stringify(log));
+        if (log.length > 0) {
+            const file = path.resolve(directory, sanitize(new Date().toISOString()) + ".json");
+            await fs.promises.writeFile(file, JSON.stringify(log));
 
-        if (log.length >= config.analytics.partitionLength) {
+            // Clear log
             log.splice(0);
-            name = makeName();
         }
     },
 };

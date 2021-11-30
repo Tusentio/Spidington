@@ -15,9 +15,8 @@
     },
     "analytics": {
         "echo": false,
-        "saveInterval": 1000,
+        "saveInterval": 60000,
         "partitionLength": 64,
-        "directory": "./.logs/analytics",
-        "nameFormat": "{UTC:yyyymmddHHMMss}.json"
+        "directory": "./.logs/analytics"
     }
 }
