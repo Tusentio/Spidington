@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -10,14 +10,11 @@
 [ext_resource path="res://Scenes/Game/Props/house_background.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Game/Props/tree_background.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/WobbleWeb/WobbleWeb.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/Game/Background2.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/Game/Props/scarecrow_background.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Game/Props/dove1.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Game/Props/few_made_it_this_far.png" type="Texture" id=14]
 [ext_resource path="res://Shaders/Color.tres" type="Material" id=15]
-[ext_resource path="res://Scenes/Game/Background4.png" type="Texture" id=17]
-[ext_resource path="res://Scenes/Game/Background3.png" type="Texture" id=18]
-[ext_resource path="res://Scenes/Game/Background1.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/Game/baccground1.png" type="Texture" id=16]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/house_background.png-19c042a70f8752b1a1a555ec521d78e4.stex"
@@ -350,28 +347,29 @@ motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 0, 800 )
 
 [node name="Background1" type="Sprite" parent="Background/NestLayer1"]
-texture = ExtResource( 19 )
+texture = ExtResource( 16 )
 
 [node name="NestLayer2" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2( 0.4, 0.4 )
 motion_mirroring = Vector2( 0, 800 )
 
 [node name="Background2" type="Sprite" parent="Background/NestLayer2"]
-texture = ExtResource( 11 )
+texture = ExtResource( 16 )
 
 [node name="NestLayer3" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2( 0.3, 0.3 )
 motion_mirroring = Vector2( 0, 800 )
 
 [node name="Background3" type="Sprite" parent="Background/NestLayer3"]
-texture = ExtResource( 18 )
+texture = ExtResource( 16 )
 
 [node name="NestLayer4" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 0, 800 )
 
 [node name="Background4" type="Sprite" parent="Background/NestLayer4"]
-texture = ExtResource( 17 )
+position = Vector2( 0, -324 )
+texture = ExtResource( 16 )
 
 [node name="FarLayer" type="ParallaxLayer" parent="Background"]
 modulate = Color( 1, 1, 1, 0.313726 )
