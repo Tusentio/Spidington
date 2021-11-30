@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Spidington</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Spidington Admin</h1>
+        </header>
+
+        <hr />
+
+        <main>
+            <section>
+                <h2>Analytics</h2>
+
+                <p>
+                    Collected <%= Math.round(analyticsSize / 1024 * 10) / 10 %> kB of analytics
+                    data.
+                </p>
+
+                <form action="/admin/analytics" method="get">
+                    <div>
+                        <button type="submit">Download</button>
+                    </div>
+
+                    <br />
+
+                    <div>
+                        <input type="checkbox" name="exclude_debug" id="chbox-exclude-debug" />
+                        <label for="chbox-exclude-debug">Exclude Debug Play</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="by_player" id="chbox-by-player" />
+                        <label for="chbox-by-player">Arrange by Player ID</label>
+                    </div>
+                </form>
+
+                <hr />
+
+                <form action="/admin/analytics/purge" method="get">
+                    <div>
+                        <p>
+                            Write "CONFIRM" in the box below to confirm if you want to
+                            <strong>DELETE all historical analytics data</strong>.
+                        </p>
+
+                        <input type="text" name="confirm" id="txt-confirm-delete" />
+                    </div>
+
+                    <br />
+
+                    <button type="submit">Clear</button>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>
