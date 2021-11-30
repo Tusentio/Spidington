@@ -44,7 +44,9 @@ func flush():
 	headers.append_array(custom_headers)
 	headers.append("content-type: application/json")
 	
+	yield($HTTPRequest, "request_completed")
 	$HTTPRequest.request(analytics_url, headers, use_ssl, HTTPClient.METHOD_POST, data)
+	
 	event_queue.clear()
 
 
