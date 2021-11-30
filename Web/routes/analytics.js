@@ -6,7 +6,6 @@ const config = require("../config.json");
 
 const router = express.Router();
 
-let name = makeName();
 const log = [];
 
 router.use(express.json());
@@ -25,14 +24,6 @@ router.post("/", (req, res) => {
 
     return res.sendStatus(200);
 });
-
-async function makeName() {
-    const dateformat = await import("dateformat");
-    const format = config.analytics.nameFormat;
-    return format.replace(/\\(.)|\{([^}]*)\}/g, (_match, escape, dateTemplate) => {
-        return escape ?? dateformat.default(Date.now(), dateTemplate);
-    });
-}
 
 module.exports = {
     router,
