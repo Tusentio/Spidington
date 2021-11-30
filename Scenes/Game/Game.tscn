@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/Game/Props/house_background.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/Game/Props/tree_background.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/WobbleWeb/WobbleWeb.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Game/Camera.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Game/Props/scarecrow_background.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Game/Props/dove1.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Game/Props/few_made_it_this_far.png" type="Texture" id=14]
@@ -411,6 +412,9 @@ limit_bottom = 0
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 6.0
+script = ExtResource( 11 )
+
+[node name="Tween" type="Tween" parent="Player/Camera"]
 
 [node name="EndingArea" parent="." instance=ExtResource( 6 )]
 position = Vector2( 4, -5260 )
