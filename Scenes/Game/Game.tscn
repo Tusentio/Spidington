@@ -1,10 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Hook/Hook.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Game/Props/BgWeb.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/EndingArea/EndingArea.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/HookGuide/HookGuide.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Game/Props/house_background.png" type="Texture" id=8]
@@ -386,36 +385,6 @@ motion_scale = Vector2( 0, 0.9 )
 texture = ExtResource( 20 )
 centered = false
 offset = Vector2( -205, -1800 )
-
-[node name="FarLayer" type="ParallaxLayer" parent="Background"]
-visible = false
-modulate = Color( 1, 1, 1, 0.313726 )
-motion_scale = Vector2( 0.6, 0.6 )
-motion_mirroring = Vector2( 500, 300 )
-
-[node name="WebBig" type="Sprite" parent="Background/FarLayer"]
-position = Vector2( 26.2004, -7.32933 )
-scale = Vector2( 1.5, 1.5 )
-texture = ExtResource( 5 )
-
-[node name="WebSmall" type="Sprite" parent="Background/FarLayer"]
-position = Vector2( 183.94, 117.247 )
-texture = ExtResource( 5 )
-
-[node name="CloseLayer" type="ParallaxLayer" parent="Background"]
-visible = false
-modulate = Color( 1, 1, 1, 0.588235 )
-motion_scale = Vector2( 0.8, 0.8 )
-motion_mirroring = Vector2( 500, 300 )
-
-[node name="WebBig" type="Sprite" parent="Background/CloseLayer"]
-position = Vector2( 375.988, 109.349 )
-texture = ExtResource( 5 )
-
-[node name="WebSmall" type="Sprite" parent="Background/CloseLayer"]
-position = Vector2( 246.416, 264.637 )
-scale = Vector2( 1.25, 1.25 )
-texture = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, -69 )
