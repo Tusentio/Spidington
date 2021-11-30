@@ -101,7 +101,7 @@ text = "Quit"
 script = ExtResource( 3 )
 
 [node name="Logo" parent="ColorRect" instance=ExtResource( 6 )]
-position = Vector2( 514.899, 154.682 )
+position = Vector2( 513.485, 143.368 )
 
 [connection signal="pressed" from="ColorRect/ButtonContainer/PlayButton" to="ColorRect/ButtonContainer/PlayButton" method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="ColorRect/ButtonContainer/RestartButton" to="ColorRect/ButtonContainer/RestartButton" method="_on_RestartButton_pressed"]

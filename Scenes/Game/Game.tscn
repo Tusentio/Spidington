@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Tilesets/Nest/Nest.tres" type="TileSet" id=1]
 [ext_resource path="res://Scenes/Game/Game.gd" type="Script" id=2]
@@ -15,7 +15,9 @@
 [ext_resource path="res://Scenes/Game/Props/dove1.png" type="Texture" id=13]
 [ext_resource path="res://Scenes/Game/Props/few_made_it_this_far.png" type="Texture" id=14]
 [ext_resource path="res://Shaders/Color.tres" type="Material" id=15]
-[ext_resource path="res://Scenes/Game/baccground1.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/Game/Background4.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/Game/Background1.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Game/Background2.png" type="Texture" id=18]
 
 [sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/house_background.png-19c042a70f8752b1a1a555ec521d78e4.stex"
@@ -348,7 +350,7 @@ motion_scale = Vector2( 0.5, 0.5 )
 motion_mirroring = Vector2( 0, 800 )
 
 [node name="Background1" type="Sprite" parent="Background/NestLayer1"]
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [node name="NestLayer2" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2( 0.4, 0.4 )
@@ -362,7 +364,7 @@ motion_scale = Vector2( 0.3, 0.3 )
 motion_mirroring = Vector2( 0, 800 )
 
 [node name="Background3" type="Sprite" parent="Background/NestLayer3"]
-texture = ExtResource( 16 )
+texture = ExtResource( 18 )
 
 [node name="NestLayer4" type="ParallaxLayer" parent="Background"]
 motion_scale = Vector2( 0.2, 0.2 )
