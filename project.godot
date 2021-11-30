@@ -43,7 +43,7 @@ boot_splash/bg_color=Color( 0, 0, 0, 1 )
 
 SceneChanger="*res://Autoload/SceneChanger/SceneChanger.tscn"
 BackgroundMusic="*res://Autoload/BackgroundMusic.tscn"
-AnalyticsCollector="*res://Autoload/AnalyticsCollector/AnalyticsCollector.tscn"
+AnalyticsCollector="*res://Autoload/AnalyticsCollector/AnalyticsCollector.scn"
 
 [display]
 
