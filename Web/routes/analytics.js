@@ -42,12 +42,7 @@ module.exports = {
             await fs.promises.mkdir(directory, { recursive: true });
         }
 
-        const file = path.resolve(directory, sanitize(await name));
+        const file = path.resolve(directory, sanitize(new Date().toISOString()) + ".json");
         await fs.promises.writeFile(file, JSON.stringify(log));
-
-        if (log.length >= config.analytics.partitionLength) {
-            log.splice(0);
-            name = makeName();
-        }
     },
 };
