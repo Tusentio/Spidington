@@ -13,6 +13,8 @@ router.use(
     })
 );
 
+router.use(express.urlencoded());
+
 router.get("/", async (_req, res) => {
     return res.render("admin", {
         analyticsSize: JSON.stringify(await compileAnalytics()).length,
@@ -33,8 +35,8 @@ router.get("/analytics", async (req, res) => {
     return res.json(analytics);
 });
 
-router.get("/analytics/purge", async (req, res) => {
-    if (req.query["confirm"] === "CONFIRM") {
+router.post("/analytics/purge", async (req, res) => {
+    if (req.body["confirm"] === "CONFIRM") {
         await clearAnalytics();
         return res.redirect("/admin");
     } else {
