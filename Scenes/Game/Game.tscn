@@ -77,10 +77,10 @@ position = Vector2( -92.633, -161.009 )
 z_index = -1
 
 [node name="WobbleWeb" parent="Map/Props" instance=ExtResource( 10 )]
-position = Vector2( 133.358, -78.9391 )
+position = Vector2( 135.737, -74.6581 )
 
 [node name="WobbleWeb2" parent="Map/Props" instance=ExtResource( 10 )]
-position = Vector2( -132.547, -45.3914 )
+position = Vector2( -168.225, -75.12 )
 
 [node name="Hooks" type="Node2D" parent="Map"]
 z_index = 1
