@@ -48,10 +48,6 @@ if (config.secure) {
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-    return res.json(req.headers);
-});
-
 // Admin
 app.use("/admin", require("./routes/admin"));
 
@@ -72,6 +68,11 @@ app.use((req, res, next) => {
 
 // Analytics
 app.use("/analytics", analytics.router);
+
+// Catch fallthrough GET requests
+app.get("*", (_req, res) => {
+    return res.sendStatus(404);
+});
 
 // Error handling
 app.use((err, _req, res, _next) => {
