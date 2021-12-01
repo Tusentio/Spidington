@@ -8,12 +8,21 @@ export (float) var flush_interval := 60.0
 
 var last_flush := OS.get_system_time_msecs()
 var event_queue := []
+var wm_quit := false
 
 
 func _ready():
+	get_tree().set_auto_accept_quit(false)
+	
 	$FlushTimer.wait_time = flush_interval
 	if flush_interval:
 		$FlushTimer.start()
+
+
+func _notification(what):
+	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST):
+		wm_quit = true
+		flush()
 
 
 func send_event(name: String, data = null):
@@ -32,6 +41,8 @@ func send_event(name: String, data = null):
 
 func flush():
 	if event_queue.empty():
+		if wm_quit:
+			get_tree().quit()
 		return
 	
 	var current_time := OS.get_system_time_msecs()
@@ -50,16 +61,18 @@ func flush():
 	headers.append_array(custom_headers)
 	headers.append("content-type: application/json")
 	
-	if $HTTPRequest.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
-		yield($HTTPRequest, "request_completed")
-	
+	_yield()
 	$HTTPRequest.request(analytics_url, headers, use_ssl, HTTPClient.METHOD_POST, data)
-	event_queue.clear()
 
 
 func flush_await():
 	flush()
-	yield($HTTPRequest, "request_completed")
+	_yield()
+
+
+func _yield():
+	if $HTTPRequest.get_http_client_status() != HTTPClient.STATUS_DISCONNECTED:
+		yield($HTTPRequest, "request_completed")
 
 
 static func get_uid():
@@ -77,6 +90,11 @@ func _on_HTTPRequest_request_completed(result, response_code, headers, body: Poo
 			}))
 		elif exit_on_fail:
 			get_tree().quit()
+	else:
+		event_queue.clear()
+	
+	if wm_quit:
+		get_tree().quit()
 
 
 func _on_FlushTimer_timeout():
