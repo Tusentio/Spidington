@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HOpps3.png-19e4fe904ff35e218b0f8f2bcf13321e.stex"
+path="res://.import/palette.png-5112038b58402132843c7430821db3f8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Player/HOpps3.png"
-dest_files=[ "res://.import/HOpps3.png-19e4fe904ff35e218b0f8f2bcf13321e.stex" ]
+source_file="res://Aseprite/palette.png"
+dest_files=[ "res://.import/palette.png-5112038b58402132843c7430821db3f8.stex" ]
 
 [params]
 

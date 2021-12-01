@@ -12,7 +12,6 @@ collision_layer = 0
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-self_modulate = Color( 1, 1, 1, 0.0980392 )
 scale = Vector2( 3, 3 )
 texture = ExtResource( 1 )
 
