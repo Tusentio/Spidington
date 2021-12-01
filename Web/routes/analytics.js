@@ -8,6 +8,21 @@ const router = express.Router();
 
 const log = [];
 
+// Version checking
+router.use((req, res, next) => {
+    const version = semver.valid(req.headers["spidington"]);
+
+    if (!version) {
+        return res.sendStatus(400);
+    }
+
+    if (!semver.satisfies(version, config.versionSupport)) {
+        return res.sendStatus(403);
+    }
+
+    return next();
+});
+
 router.use(express.json());
 
 router.post("/", (req, res) => {

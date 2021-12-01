@@ -51,21 +51,6 @@ app.use(express.static("public"));
 // Admin
 app.use("/admin", require("./routes/admin"));
 
-// Version checking
-app.use((req, res, next) => {
-    const version = semver.valid(req.headers["spidington"]);
-
-    if (!version) {
-        return res.sendStatus(400);
-    }
-
-    if (!semver.satisfies(version, config.versionSupport)) {
-        return res.sendStatus(403);
-    }
-
-    return next();
-});
-
 // Analytics
 app.use("/analytics", analytics.router);
 
