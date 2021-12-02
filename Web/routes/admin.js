@@ -23,6 +23,16 @@ router.get("/", async (_req, res) => {
     });
 });
 
+router.get("/result/:data/*", (req, res) => {
+    try {
+        const data = Buffer.from(req.params.data, "base64").toString();
+        const result = JSON.parse(data);
+        return res.json(result);
+    } catch (error) {
+        return res.status(400).json({ error: `${error}` });
+    }
+});
+
 router.get("/analytics", async (req, res) => {
     let analytics = await compileAnalytics();
 

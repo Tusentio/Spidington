@@ -73,7 +73,12 @@
                             </div>
 
                             <div>
-                                <button data-id="<%= id %>" type="button" onclick="_run(this)">
+                                <button
+                                    data-id="<%= id %>"
+                                    data-name="<%= snippet.name %>"
+                                    type="button"
+                                    onclick="_run(this)"
+                                >
                                     Run
                                 </button>
 
@@ -122,7 +127,10 @@
                     </div>
 
                     <div>
-                        <button data-id="_" type="button" onclick="_run(this)">Run</button>
+                        <button data-id="_" data-name="Untitled" type="button" onclick="_run(this)">
+                            Run
+                        </button>
+
                         <button type="submit">Publish</button>
                     </div>
                 </form>
@@ -151,22 +159,30 @@
                 decodeURIComponent(escape(window.atob(_analytics.innerText)))
             );
 
-            const exec = function (src, ...args) {
+            const exec = function (name, src, ...args) {
                 const func = new Function("...args", src);
                 const result = func(...args);
 
                 if (result !== undefined) {
                     const json = JSON.stringify(result, null, 4);
                     const data = window.btoa(unescape(encodeURIComponent(json)));
-                    window.open("data:application/json;base64," + data, "_blank", "top=0");
+                    window.open(
+                        "/admin/result/" +
+                            encodeURIComponent(data) +
+                            "/" +
+                            encodeURIComponent(name),
+                        "_blank",
+                        "popup"
+                    );
                 }
             };
 
             const _run = function (button) {
                 const id = button.getAttribute("data-id");
+                const name = button.getAttribute("data-name");
                 const snippet = document.getElementById("_snippet_" + id);
                 const src = snippet.querySelector("textarea").value;
-                exec(src, analytics);
+                exec(name, src, analytics);
             };
         </script>
     </body>
