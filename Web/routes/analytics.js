@@ -44,9 +44,7 @@ module.exports = {
     router,
     async save() {
         const directory = config.analytics.directory;
-        if (!fs.existsSync(directory)) {
-            await fs.promises.mkdir(directory, { recursive: true });
-        }
+        await fs.promises.mkdir(directory, { recursive: true });
 
         if (log.length > 0) {
             const file = path.resolve(directory, sanitize(new Date().toISOString()) + ".json");

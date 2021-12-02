@@ -5,6 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Spidington</title>
+
+        <script id="_analytics" type="text/plain">
+            <%= Buffer.from(JSON.stringify(analytics)).toString("base64") %>
+        </script>
     </head>
 
     <body>
@@ -18,17 +22,15 @@
             <section>
                 <h2>Analytics</h2>
 
-                <p>
-                    Collected <%= Math.round(analyticsSize / 1024 * 10) / 10 %> kB of analytics
-                    data.
-                </p>
-
                 <form action="/admin/analytics" method="get">
+                    <p>
+                        Collected <%= Math.round(JSON.stringify(analytics).length / 1024 * 10) / 10
+                        %> kB of analytics data.
+                    </p>
+
                     <div>
                         <button type="submit">Download</button>
                     </div>
-
-                    <br />
 
                     <div>
                         <input type="checkbox" name="exclude_debug" id="chbox-exclude-debug" />
@@ -41,9 +43,78 @@
                     </div>
                 </form>
 
-                <hr />
+                <section>
+                    <h3>Analysis Snippets</h3>
+
+                    <% if (Object.keys(snippets).length > 0) for (const [id, snippet] of
+                    Object.entries(snippets)) { %>
+
+                    <form
+                        id="_snippet_<%= id %>"
+                        action="/admin/analytics/snippet/<%= id %>"
+                        method="post"
+                    >
+                        <h4><%= snippet.name %></h4>
+
+                        <div>
+                            <code>
+                                <textarea name="code" cols="40" rows="1">
+<%= snippet.code %></textarea
+                                >
+                            </code>
+                        </div>
+
+                        <div>
+                            <button data-id="<%= id %>" type="button" onclick="_run(this)">
+                                Run
+                            </button>
+
+                            <button type="submit">Update</button>
+
+                            <button
+                                type="submit"
+                                formaction="/admin/analytics/snippet/<%= id %>/delete"
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </form>
+
+                    <% } else { %>
+                    <p>—</p>
+                    <% } %>
+                </section>
+
+                <form id="_snippet__" action="/admin/analytics/snippet" method="post">
+                    <h3>Create Analysis Snippet</h3>
+
+                    <div>
+                        <label for="new-snippet-name">Name</label>
+                        <div>
+                            <input type="text" name="name" id="new-snippet-name" value="Untitled" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="new-snippet-code">Code</label>
+                        <div>
+                            <code>
+                                <textarea name="code" id="new-snippet-code" cols="80" rows="5">
+// Code goes here</textarea
+                                >
+                            </code>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button data-id="_" type="button" onclick="_run(this)">Run</button>
+                        <button type="submit">Publish</button>
+                    </div>
+                </form>
 
                 <form action="/admin/analytics/purge" method="post">
+                    <h3>Clear Analytics</h3>
+
                     <div>
                         <p>
                             Write "CONFIRM" in the box below to confirm if you want to
@@ -53,11 +124,34 @@
                         <input type="text" name="confirm" id="txt-confirm-delete" />
                     </div>
 
-                    <br />
-
-                    <button type="submit">Clear</button>
+                    <div>
+                        <button type="submit">Clear</button>
+                    </div>
                 </form>
             </section>
         </main>
+
+        <script type="application/javascript">
+            const analytics = JSON.parse(
+                decodeURIComponent(escape(window.atob(_analytics.innerText)))
+            );
+
+            const exec = function (src, ...args) {
+                const func = new Function("...args", src);
+                const result = func(...args);
+
+                if (result !== undefined) {
+                    const data = window.btoa(unescape(encodeURIComponent(JSON.stringify(result))));
+                    window.open("data:application/json;base64," + data, "_blank", "top=0");
+                }
+            };
+
+            const _run = function (button) {
+                const id = button.getAttribute("data-id");
+                const snippet = document.getElementById("_snippet_" + id);
+                const src = snippet.querySelector("textarea").value;
+                exec(src, analytics);
+            };
+        </script>
     </body>
 </html>

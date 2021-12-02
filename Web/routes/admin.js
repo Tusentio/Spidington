@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const express = require("express");
 const auth = require("../middlewares/auth");
 const config = require("../config.json");
@@ -17,7 +18,8 @@ router.use(express.urlencoded());
 
 router.get("/", async (_req, res) => {
     return res.render("admin", {
-        analyticsSize: JSON.stringify(await compileAnalytics()).length,
+        analytics: await compileAnalytics(),
+        snippets: await readSnippets(),
     });
 });
 
@@ -40,8 +42,46 @@ router.post("/analytics/purge", async (req, res) => {
         await clearAnalytics();
         return res.redirect("/admin");
     } else {
-        return res.status(204).end();
+        return res.status(204).send();
     }
+});
+
+router.post("/analytics/snippet", async (req, res) => {
+    const id = crypto.randomBytes(8).toString("base64url");
+    const snippets = await readSnippets();
+
+    snippets[id] = {
+        name: req.body.name ?? "",
+        code: req.body.code ?? "",
+    };
+
+    await saveSnippets(snippets);
+    return res.redirect("/admin");
+});
+
+router.post("/analytics/snippet/:id", async (req, res) => {
+    const id = req.params.id;
+    const snippets = await readSnippets();
+
+    const snippet = snippets[id];
+
+    if (snippet) {
+        snippet.name = req.body.name ?? snippet.name;
+        snippet.code = req.body.code ?? snippet.code;
+        await saveSnippets(snippets);
+    }
+
+    return res.redirect("/admin");
+});
+
+router.post("/analytics/snippet/:id/delete", async (req, res) => {
+    const id = req.params.id;
+    const snippets = await readSnippets();
+
+    delete snippets[id];
+
+    await saveSnippets(snippets);
+    return res.redirect("/admin");
 });
 
 module.exports = router;
@@ -93,4 +133,16 @@ async function clearAnalytics() {
         const file = path.resolve(config.analytics.directory, name);
         await fs.promises.unlink(file);
     }
+}
+
+async function readSnippets() {
+    return JSON.parse(
+        fs.existsSync("./.snippets.json")
+            ? await fs.promises.readFile("./.snippets.json", "utf-8")
+            : JSON.stringify({})
+    );
+}
+
+async function saveSnippets(snippets) {
+    await fs.promises.writeFile("./.snippets.json", JSON.stringify(snippets));
 }
