@@ -1,26 +1,32 @@
-const analytics = JSON.parse(decodeURIComponent(escape(window.atob(_analytics.innerText))));
-
-const exec = function (name, src, ...args) {
-    const func = new Function("...args", src);
-    const result = func(...args);
-
-    if (result !== undefined) {
-        const json = JSON.stringify(result);
-        const data = window.btoa(unescape(encodeURIComponent(json)));
-        window.open(
-            "/admin/result/" + encodeURIComponent(data) + "/" + encodeURIComponent(name),
-            "_blank",
-            "popup,top"
-        );
-    }
-};
-
-const _run = function (button) {
+const _run = async function (e) {
+    const button = e.target;
     const id = button.getAttribute("data-id");
     const name = button.getAttribute("data-name");
     const snippet = document.getElementById("_snippet_" + id);
     const src = snippet.querySelector("textarea").value;
-    exec(name, src, analytics);
+
+    const response = await fetch("/admin/analytics");
+    if (!response.ok) return;
+
+    const analytics = await response.json();
+
+    const func = new Function("...args", src);
+    const result = func(analytics) ?? null;
+    const json = JSON.stringify(result, null, 4);
+
+    const file = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(file);
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = name + ".json";
+    document.body.appendChild(a);
+    a.click();
+
+    setTimeout(() => {
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }, 0);
 };
 
 const _handleTab = function (e) {

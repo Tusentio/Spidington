@@ -18,22 +18,9 @@ router.use(express.urlencoded());
 
 router.get("/", async (_req, res) => {
     return res.render("admin", {
-        analytics: await compileAnalytics(),
+        analyticsSize: await analyticsSize(),
         snippets: await readSnippets(),
     });
-});
-
-router.get("/result/:data/*", (req, res) => {
-    try {
-        const data = Buffer.from(req.params.data, "base64").toString();
-        const result = JSON.parse(data);
-        return res
-            .status(200)
-            .header("content-type", "application/json")
-            .send(JSON.stringify(result, null, 2));
-    } catch (error) {
-        return res.status(400).json({ error: `${error}` });
-    }
 });
 
 router.get("/analytics", async (req, res) => {
@@ -75,7 +62,6 @@ router.post("/analytics/snippet", async (req, res) => {
 router.post("/analytics/snippet/:id", async (req, res) => {
     const id = req.params.id;
     const snippets = await readSnippets();
-
     const snippet = snippets[id];
 
     if (snippet) {
@@ -113,6 +99,21 @@ function filterDebugBuilds(analytics) {
     return analytics.filter((entry) => entry.rel !== 0);
 }
 
+async function analyticsSize() {
+    const files = await fs.promises.readdir(config.analytics.directory);
+    let size = 0;
+
+    for (const name of files) {
+        if (name.toLowerCase().endsWith(".json")) {
+            const file = path.resolve(config.analytics.directory, name);
+            const stats = fs.statSync(file);
+            size += stats.size;
+        }
+    }
+
+    return size;
+}
+
 async function compileAnalytics() {
     const analytics = [];
     const files = await fs.promises.readdir(config.analytics.directory);
@@ -125,14 +126,6 @@ async function compileAnalytics() {
             try {
                 analytics.push(...JSON.parse(log));
             } catch {}
-        }
-    }
-
-    for (const entry of analytics) {
-        for (const event of entry.evq) {
-            if (event.m === 0) {
-                delete event.m;
-            }
         }
     }
 

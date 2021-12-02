@@ -7,10 +7,6 @@
         <title>Spidington</title>
 
         <link rel="stylesheet" href="/style.css" />
-
-        <script id="_analytics" type="text/plain">
-            <%= Buffer.from(JSON.stringify(analytics)).toString("base64") %>
-        </script>
     </head>
 
     <body>
@@ -26,8 +22,8 @@
 
                 <form action="/admin/analytics" method="get">
                     <p>
-                        Collected <%= Math.round(JSON.stringify(analytics).length / 1024 * 10) / 10
-                        %> kB of analytics data.
+                        Collected <%= Math.round(analyticsSize / 1024 * 10) / 10 %> kB of analytics
+                        data.
                     </p>
 
                     <div>
@@ -76,7 +72,7 @@
                                     data-id="<%= id %>"
                                     data-name="<%= snippet.name %>"
                                     type="button"
-                                    onclick="_run(this)"
+                                    onclick="_run(event)"
                                 >
                                     Run
                                 </button>
@@ -125,7 +121,12 @@
                     </div>
 
                     <div>
-                        <button data-id="_" data-name="Untitled" type="button" onclick="_run(this)">
+                        <button
+                            data-id="_"
+                            data-name="Untitled"
+                            type="button"
+                            onclick="_run(event)"
+                        >
                             Run
                         </button>
 
