@@ -63,6 +63,7 @@
                                 <textarea
                                     autocapitalize="off"
                                     autocomplete="off"
+                                    onkeydown="_handleTab(event)"
                                     name="code"
                                     rows="1"
                                 >
@@ -113,6 +114,7 @@
                             <textarea
                                 autocapitalize="off"
                                 autocomplete="off"
+                                onkeydown="_handleTab(event)"
                                 name="code"
                                 id="new-snippet-code"
                                 rows="5"
@@ -150,36 +152,6 @@
             </section>
         </main>
 
-        <script type="application/javascript">
-            const analytics = JSON.parse(
-                decodeURIComponent(escape(window.atob(_analytics.innerText)))
-            );
-
-            const exec = function (name, src, ...args) {
-                const func = new Function("...args", src);
-                const result = func(...args);
-
-                if (result !== undefined) {
-                    const json = JSON.stringify(result);
-                    const data = window.btoa(unescape(encodeURIComponent(json)));
-                    window.open(
-                        "/admin/result/" +
-                            encodeURIComponent(data) +
-                            "/" +
-                            encodeURIComponent(name),
-                        "_blank",
-                        "popup,top"
-                    );
-                }
-            };
-
-            const _run = function (button) {
-                const id = button.getAttribute("data-id");
-                const name = button.getAttribute("data-name");
-                const snippet = document.getElementById("_snippet_" + id);
-                const src = snippet.querySelector("textarea").value;
-                exec(name, src, analytics);
-            };
-        </script>
+        <script src="/app.js"></script>
     </body>
 </html>
