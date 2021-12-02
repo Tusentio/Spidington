@@ -156,7 +156,8 @@
                 const result = func(...args);
 
                 if (result !== undefined) {
-                    const data = window.btoa(unescape(encodeURIComponent(JSON.stringify(result))));
+                    const json = JSON.stringify(result, null, 4);
+                    const data = window.btoa(unescape(encodeURIComponent(json)));
                     window.open("data:application/json;base64," + data, "_blank", "top=0");
                 }
             };
