@@ -1,5 +1,4 @@
 const fs = require("fs");
-const semver = require("semver");
 const express = require("express");
 const analytics = require("./routes/analytics");
 const config = require("./config.json");
