@@ -9,6 +9,40 @@
         <script id="_analytics" type="text/plain">
             <%= Buffer.from(JSON.stringify(analytics)).toString("base64") %>
         </script>
+
+        <style>
+            * {
+                margin: 0;
+            }
+
+            body {
+                padding: 1rem;
+            }
+
+            h1 ~ *,
+            h2 ~ *,
+            h3 ~ *,
+            h4 ~ *,
+            h5 ~ *,
+            h6 ~ * {
+                margin-left: 1rem;
+            }
+
+            div,
+            section,
+            form,
+            p,
+            hr,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                display: block;
+                margin-bottom: 0.5em;
+            }
+        </style>
     </head>
 
     <body>
