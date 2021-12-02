@@ -42,3 +42,10 @@ h6 {
     display: block;
     margin-bottom: 0.75rem;
 }
+
+#analysis-snippets {
+    max-height: 20em;
+    max-width: 40rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

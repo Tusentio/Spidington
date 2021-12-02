@@ -48,48 +48,50 @@
                 <section>
                     <h3>Analysis Snippets</h3>
 
-                    <% if (Object.keys(snippets).length > 0) for (const [id, snippet] of
-                    Object.entries(snippets)) { %>
+                    <div id="analysis-snippets">
+                        <% if (Object.keys(snippets).length > 0) for (const [id, snippet] of
+                        Object.entries(snippets)) { %>
 
-                    <form
-                        id="_snippet_<%= id %>"
-                        action="/admin/analytics/snippet/<%= id %>"
-                        method="post"
-                    >
-                        <h4><%= snippet.name %></h4>
+                        <form
+                            id="_snippet_<%= id %>"
+                            action="/admin/analytics/snippet/<%= id %>"
+                            method="post"
+                        >
+                            <h4><%= snippet.name %></h4>
 
-                        <div>
-                            <code>
-                                <textarea
-                                    autocapitalize="off"
-                                    autocomplete="off"
-                                    name="code"
-                                    rows="1"
-                                >
+                            <div>
+                                <code>
+                                    <textarea
+                                        autocapitalize="off"
+                                        autocomplete="off"
+                                        name="code"
+                                        rows="1"
+                                    >
 <%= snippet.code %></textarea
+                                    >
+                                </code>
+                            </div>
+
+                            <div>
+                                <button data-id="<%= id %>" type="button" onclick="_run(this)">
+                                    Run
+                                </button>
+
+                                <button type="submit">Update</button>
+
+                                <button
+                                    type="submit"
+                                    formaction="/admin/analytics/snippet/<%= id %>/delete"
                                 >
-                            </code>
-                        </div>
+                                    Delete
+                                </button>
+                            </div>
+                        </form>
 
-                        <div>
-                            <button data-id="<%= id %>" type="button" onclick="_run(this)">
-                                Run
-                            </button>
-
-                            <button type="submit">Update</button>
-
-                            <button
-                                type="submit"
-                                formaction="/admin/analytics/snippet/<%= id %>/delete"
-                            >
-                                Delete
-                            </button>
-                        </div>
-                    </form>
-
-                    <% } else { %>
-                    <p>—</p>
-                    <% } %>
+                        <% } else { %>
+                        <p>—</p>
+                        <% } %>
+                    </div>
                 </section>
 
                 <form id="_snippet__" action="/admin/analytics/snippet" method="post">
