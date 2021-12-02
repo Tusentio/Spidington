@@ -1,11 +1,16 @@
-:root {
+* {
+    margin: 0;
     font-family: sans-serif;
     background-color: black;
     color: white;
 }
 
-* {
-    margin: 0;
+button,
+textarea,
+input {
+    border: none;
+    padding: 0.25em 0.5em;
+    background-color: #222;
 }
 
 body {
