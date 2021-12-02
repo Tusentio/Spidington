@@ -6,43 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Spidington</title>
 
+        <link rel="stylesheet" href="/style.css" />
+
         <script id="_analytics" type="text/plain">
             <%= Buffer.from(JSON.stringify(analytics)).toString("base64") %>
         </script>
-
-        <style>
-            * {
-                margin: 0;
-            }
-
-            body {
-                padding: 1rem;
-            }
-
-            h1 ~ *,
-            h2 ~ *,
-            h3 ~ *,
-            h4 ~ *,
-            h5 ~ *,
-            h6 ~ * {
-                margin-left: 1rem;
-            }
-
-            div,
-            section,
-            form,
-            p,
-            hr,
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                display: block;
-                margin-bottom: 0.5em;
-            }
-        </style>
     </head>
 
     <body>
@@ -92,7 +60,12 @@
 
                         <div>
                             <code>
-                                <textarea name="code" cols="40" rows="1">
+                                <textarea
+                                    autocapitalize="off"
+                                    autocomplete="off"
+                                    name="code"
+                                    rows="1"
+                                >
 <%= snippet.code %></textarea
                                 >
                             </code>
@@ -133,7 +106,13 @@
                         <label for="new-snippet-code">Code</label>
                         <div>
                             <code>
-                                <textarea name="code" id="new-snippet-code" cols="80" rows="5">
+                                <textarea
+                                    autocapitalize="off"
+                                    autocomplete="off"
+                                    name="code"
+                                    id="new-snippet-code"
+                                    rows="5"
+                                >
 // Code goes here</textarea
                                 >
                             </code>

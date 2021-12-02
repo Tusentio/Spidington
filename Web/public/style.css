@@ -1,0 +1,44 @@
+:root {
+    background-color: black;
+    color: white;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    margin: 1rem;
+}
+
+textarea {
+    width: 90%;
+    min-width: none;
+    max-width: 60rem;
+    margin-right: 1rem;
+    resize: vertical;
+}
+
+h1 ~ *,
+h2 ~ *,
+h3 ~ *,
+h4 ~ *,
+h5 ~ *,
+h6 ~ * {
+    margin-left: 1rem;
+}
+
+div,
+section,
+form,
+p,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: block;
+    margin-bottom: 0.75rem;
+}
