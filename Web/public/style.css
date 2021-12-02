@@ -23,6 +23,7 @@ textarea {
     max-width: 60rem;
     margin-right: 1rem;
     resize: vertical;
+    font-family: monospace;
 }
 
 h1 ~ *,
