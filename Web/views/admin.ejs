@@ -164,7 +164,7 @@
                 const result = func(...args);
 
                 if (result !== undefined) {
-                    const json = JSON.stringify(result, null, 4);
+                    const json = JSON.stringify(result);
                     const data = window.btoa(unescape(encodeURIComponent(json)));
                     window.open(
                         "/admin/result/" +

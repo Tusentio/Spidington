@@ -27,7 +27,10 @@ router.get("/result/:data/*", (req, res) => {
     try {
         const data = Buffer.from(req.params.data, "base64").toString();
         const result = JSON.parse(data);
-        return res.json(result);
+        return res
+            .status(200)
+            .header("content-type", "application/json")
+            .send(JSON.stringify(result, null, 2));
     } catch (error) {
         return res.status(400).json({ error: `${error}` });
     }
