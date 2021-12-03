@@ -5,6 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Spidington</title>
+
+        <link rel="stylesheet" href="/style.css" />
     </head>
 
     <body>
@@ -18,17 +20,15 @@
             <section>
                 <h2>Analytics</h2>
 
-                <p>
-                    Collected <%= Math.round(analyticsSize / 1024 * 10) / 10 %> kB of analytics
-                    data.
-                </p>
-
                 <form action="/admin/analytics" method="get">
+                    <p>
+                        Collected <%= Math.round(analyticsSize / 1024 * 10) / 10 %> kB of analytics
+                        data.
+                    </p>
+
                     <div>
                         <button type="submit">Download</button>
                     </div>
-
-                    <br />
 
                     <div>
                         <input type="checkbox" name="exclude_debug" id="chbox-exclude-debug" />
@@ -41,9 +41,102 @@
                     </div>
                 </form>
 
-                <hr />
+                <section>
+                    <h3>Analysis Snippets</h3>
 
-                <form action="/admin/analytics/purge" method="get">
+                    <div id="analysis-snippets">
+                        <% if (Object.keys(snippets).length > 0) for (const [id, snippet] of
+                        Object.entries(snippets)) { %>
+
+                        <form
+                            id="_snippet_<%= id %>"
+                            action="/admin/analytics/snippet/<%= id %>"
+                            method="post"
+                        >
+                            <h4><%= snippet.name %></h4>
+
+                            <div>
+                                <textarea
+                                    autocapitalize="off"
+                                    autocomplete="off"
+                                    onkeydown="_handleTab(event)"
+                                    name="code"
+                                    rows="1"
+                                >
+<%= snippet.code %></textarea
+                                >
+                            </div>
+
+                            <div>
+                                <button
+                                    data-id="<%= id %>"
+                                    data-name="<%= snippet.name %>"
+                                    type="button"
+                                    onclick="_run(event)"
+                                >
+                                    Run
+                                </button>
+
+                                <button type="submit">Publish</button>
+
+                                <button
+                                    type="submit"
+                                    formaction="/admin/analytics/snippet/<%= id %>/delete"
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        </form>
+
+                        <% } else { %>
+                        <p>—</p>
+                        <% } %>
+                    </div>
+                </section>
+
+                <form id="_snippet__" action="/admin/analytics/snippet" method="post">
+                    <h3>Create Analysis Snippet</h3>
+
+                    <div>
+                        <label for="new-snippet-name">Name</label>
+                        <div>
+                            <input type="text" name="name" id="new-snippet-name" value="Untitled" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="new-snippet-code">Code</label>
+                        <div>
+                            <textarea
+                                autocapitalize="off"
+                                autocomplete="off"
+                                onkeydown="_handleTab(event)"
+                                name="code"
+                                id="new-snippet-code"
+                                rows="5"
+                            >
+// Code goes here</textarea
+                            >
+                        </div>
+                    </div>
+
+                    <div>
+                        <button
+                            data-id="_"
+                            data-name="Untitled"
+                            type="button"
+                            onclick="_run(event)"
+                        >
+                            Run
+                        </button>
+
+                        <button type="submit">Publish</button>
+                    </div>
+                </form>
+
+                <form action="/admin/analytics/purge" method="post">
+                    <h3>Clear Analytics</h3>
+
                     <div>
                         <p>
                             Write "CONFIRM" in the box below to confirm if you want to
@@ -53,11 +146,13 @@
                         <input type="text" name="confirm" id="txt-confirm-delete" />
                     </div>
 
-                    <br />
-
-                    <button type="submit">Clear</button>
+                    <div>
+                        <button type="submit">Clear</button>
+                    </div>
                 </form>
             </section>
         </main>
+
+        <script src="/app.js"></script>
     </body>
 </html>

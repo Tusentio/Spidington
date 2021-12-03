@@ -1,5 +1,4 @@
 const fs = require("fs");
-const semver = require("semver");
 const express = require("express");
 const analytics = require("./routes/analytics");
 const config = require("./config.json");
@@ -48,30 +47,16 @@ if (config.secure) {
 
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-    return res.json(req.headers);
-});
-
 // Admin
 app.use("/admin", require("./routes/admin"));
 
-// Version checking
-app.use((req, res, next) => {
-    const version = semver.valid(req.headers["spidington"]);
-
-    if (!version) {
-        return res.sendStatus(400);
-    }
-
-    if (!semver.satisfies(version, config.versionSupport)) {
-        return res.sendStatus(403);
-    }
-
-    return next();
-});
-
 // Analytics
 app.use("/analytics", analytics.router);
+
+// Catch fallthrough GET requests
+app.get("*", (_req, res) => {
+    return res.sendStatus(404);
+});
 
 // Error handling
 app.use((err, _req, res, _next) => {

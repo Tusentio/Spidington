@@ -2,19 +2,19 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BgWeb.png-24deb2055a8fc263eb7dd2e53595a5db.stex"
+path="res://.import/palette_extended.png-b2438351be8951c93eb58031ffbabef8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Game/Props/BgWeb.png"
-dest_files=[ "res://.import/BgWeb.png-24deb2055a8fc263eb7dd2e53595a5db.stex" ]
+source_file="res://Aseprite/palette_extended.png"
+dest_files=[ "res://.import/palette_extended.png-b2438351be8951c93eb58031ffbabef8.stex" ]
 
 [params]
 
-compress/mode=3
+compress/mode=0
 compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=0
+flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

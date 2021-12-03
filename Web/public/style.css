@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: black;
+    color: white;
+}
+
+button,
+textarea,
+input {
+    border: none;
+    padding: 0.25em 0.5em;
+    background-color: #222;
+}
+
+body {
+    margin: 1rem;
+}
+
+textarea {
+    width: 90%;
+    min-width: none;
+    max-width: 60rem;
+    margin-right: 1rem;
+    resize: vertical;
+    font-family: monospace;
+}
+
+h1 ~ *,
+h2 ~ *,
+h3 ~ *,
+h4 ~ *,
+h5 ~ *,
+h6 ~ * {
+    margin-left: 1rem;
+}
+
+div,
+section,
+form,
+p,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+#analysis-snippets {
+    max-height: 20em;
+    max-width: 40rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

@@ -8,7 +8,7 @@
 [ext_resource path="res://Scripts/LineOfSight.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Hook/Indicator.png" type="Texture" id=7]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "Indicate"
 loop = true
 tracks/0/type = "value"
@@ -54,7 +54,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.15, 1.15 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 4.0
 height = 7.0
 
@@ -88,7 +88,7 @@ texture = ExtResource( 7 )
 
 [node name="Animator" type="AnimationPlayer" parent="Indicator"]
 autoplay = "Indicate"
-anims/Indicate = SubResource( 3 )
+anims/Indicate = SubResource( 1 )
 
 [node name="Hook" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -98,7 +98,7 @@ anims/Anchored = SubResource( 2 )
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 show_behind_parent = true
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
