@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "required": ["sid", "evq", "iat", "rel", "dur"],
+    "properties": {
+        "sid": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+        },
+        "iat": { "type": "integer" },
+        "dur": { "type": "integer" },
+        "rel": {
+            "type": "integer",
+            "enum": [0, 1]
+        },
+        "evq": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "$ref": "#/$defs/event" }
+        }
+    },
+    "$defs": {
+        "event": {
+            "type": "object",
+            "required": ["n", "t"],
+            "properties": {
+                "n": {
+                    "type": "string",
+                    "pattern": "^\\w+$"
+                },
+                "t": { "type": "integer" },
+                "m": {
+                    "type": "object",
+                    "minProperties": 1
+                }
+            }
+        }
+    }
+}
