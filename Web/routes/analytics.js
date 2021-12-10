@@ -17,11 +17,11 @@ router.use((req, res, next) => {
     const version = semver.valid(req.headers["spidington"]);
 
     if (!version) {
-        return res.sendStatus(400);
+        return res.status(400).send();
     }
 
     if (!semver.satisfies(version, config.versionSupport)) {
-        return res.sendStatus(403);
+        return res.status(403).send();
     }
 
     return next();
@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
     const entry = req.body;
 
     if (!validatePacket(entry)) {
-        return res.sendStatus(400);
+        return res.status(400).send();
     }
 
     log.push(entry);
@@ -43,7 +43,7 @@ router.post("/", (req, res) => {
         console.log(entry);
     }
 
-    return res.sendStatus(200);
+    return res.status(200).send();
 });
 
 async function save() {

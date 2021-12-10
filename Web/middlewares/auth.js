@@ -22,7 +22,8 @@ function basic(verifier, options = {}) {
 
         return res
             .header("www-authenticate", "Basic " + formatParams({ realm, charset }))
-            .sendStatus(401);
+            .status(401)
+            .send();
     };
 }
 

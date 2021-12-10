@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     if (req.headers.host) {
         return next();
     } else {
-        return res.sendStatus(400);
+        return res.status(400).send();
     }
 });
 
@@ -55,13 +55,13 @@ app.use("/analytics", analytics.router);
 
 // Catch fallthrough GET requests
 app.get("*", (_req, res) => {
-    return res.sendStatus(404);
+    return res.status(404).send();
 });
 
 // Error handling
 app.use((err, _req, res, _next) => {
     console.error(err);
-    return res.sendStatus(500);
+    return res.status(500).send();
 });
 
 app.listen(config.port, () => {
