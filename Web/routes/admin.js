@@ -14,7 +14,7 @@ router.use(
     })
 );
 
-router.use(express.urlencoded());
+router.use(express.urlencoded({ extended: true }));
 
 router.get("/", async (_req, res) => {
     return res.render("admin", {
@@ -143,9 +143,7 @@ async function clearAnalytics() {
 
 async function readSnippets() {
     return JSON.parse(
-        fs.existsSync("./.snippets.json")
-            ? await fs.promises.readFile("./.snippets.json", "utf-8")
-            : JSON.stringify({})
+        fs.existsSync("./.snippets.json") ? await fs.promises.readFile("./.snippets.json", "utf-8") : JSON.stringify({})
     );
 }
 
